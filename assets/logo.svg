@@ -1,0 +1,18 @@
+﻿<svg xmlns=http://www.w3.org/2000/svg viewBox=0 0 500 500 width=100% height=100% fill=none>
+  <!-- Interlocking G and Infinity Symbol for Giri -->
+  <g stroke=#111215 stroke-width=11 stroke-linecap=round stroke-linejoin=round>
+    <!-- Capital 'G' Arc -->
+    <path d=M 305 188 
+ A 120 120 0 1 0 295 305 fill=none />
+    <path d=M 248 212 L 320 212 fill=none />
+    
+    <!-- Infinity loop intertwined across lower portion -->
+    <path d=M 250 250 
+ C 210 198, 155 206, 155 250 
+ C 155 294, 210 302, 250 250 
+ C 290 198, 345 206, 345 250 
+ C 345 294, 290 302, 250 250 Z fill=none />
+  </g>
+  <!-- Wordmark -->
+  <text x=250 y=385 text-anchor=middle font-family=-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif font-size=21 font-weight=500 letter-spacing=0.45em fill=#111215>GIRI</text>
+</svg>

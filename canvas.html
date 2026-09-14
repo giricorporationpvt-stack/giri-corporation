@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content=width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no>
+  <title>Zero-Gravity Canvas — Interactive Space | Giri</title>
+  <meta name=description content=An interactive anti-gravity workspace showcasing Giri's flagship software and founder cards floating weightlessly.>
+  
+  <link rel=icon type=image/png href=assets/logo.png?v=2>
+  <link rel=preconnect href=https://fonts.googleapis.com>
+  <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+  <link href=https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap rel=stylesheet>
+  <!-- Inline Anti-FOUC Theme & A11y Hydration -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('giri_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        var f = localStorage.getItem('giri_font_size');
+        if (f && f !== 'normal') document.documentElement.setAttribute('data-font-size', f);
+        var c = localStorage.getItem('giri_contrast');
+        if (c === 'high-contrast') document.documentElement.setAttribute('data-a11y', 'high-contrast');
+      } catch(e) {}
+    })();
+  </script>
+
+  <link rel=stylesheet href=css/styles.css>
+  <meta http-equiv="refresh" content="0; url=apps.html">
+  <script>window.location.replace('apps.html');</script>
+</head>
+<body class=canvas-viewport style=overflow: hidden; height: 100vh;>
+  <!-- Subtle Atmospheric Canvas -->
+  <div class=ambient-layer aria-hidden=true>
+    <div class=ambient-blur blur-1></div>
+    <div class=ambient-blur blur-2></div>
+    <div class=ambient-blur blur-3></div>
+    <div class=ambient-grid></div>
+  </div>
+
+  <!-- Elite Navigation Header -->
+  <header class=zoho-header role=banner style=position: fixed; top: 0; left: 0; right: 0; z-index: 100;>
+    <div class=header-container>
+      <a href=index.html class=zoho-brand>
+        <div class=brand-logo-wrap>
+          <img src=assets/logo.png?v=2 alt="Giri Logo" class=brand-logo-img>
+        </div>
+        <div class=brand-text>
+          <span class="brand-name">GIRI</span>
+        </div>
+      </a>
+
+      <nav class=zoho-nav aria-label=Navigation>
+        <div class=nav-item>
+          <a href=index.html class=nav-link><span>Home</span></a>
+        </div>
+        <div class=nav-item>
+          <a href=apps.html class=nav-link><span>Apps and Tools</span></a>
+        </div>
+        <div class=nav-item>
+          <a href=founder.html class=nav-link><span>Founder's Letter</span></a>
+        </div>
+        <div class=nav-item>
+          <a href=canvas.html class="nav-link is-active-page"><span>Zero-G Space</span></a>
+        </div>
+      </nav>
+
+      <div class=zoho-utilities>
+        <!-- Physics & Telemetry HUD -->
+        <div class=canvas-telemetry-hud style=margin: 0;>
+          <button type=button class=hud-pill id=physics-toggle-btn title=Toggle Floating Movement>
+            <span class=status-indicator live></span>
+            <span class=hud-label id=physics-status-text>Zero-G: Floating</span>
+          </button>
+          <button type=button class=hud-icon-btn id=recenter-btn title=Re-scatter Cards>
+            <svg viewBox=0 0 24 24 width=14 height=14 stroke=currentColor stroke-width=1.8 fill=none stroke-linecap=round stroke-linejoin=round>
+              <path d=M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id=giri-canvas class=workspace-canvas tabindex=0 style=position: absolute; inset: 0; width: 100vw; height: 100vh; border-radius: 0; border: none; padding-top: 70px;>
+    <!-- Cards are injected dynamically by js/app.js -->
+  </main>
+
+  <!-- Canvas HUD Footer -->
+  <footer class=canvas-footer role=contentinfo>
+    <div class=footer-left>
+      <span class=micro-badge>GIRI CORE</span>
+      <span class=footer-divider>•</span>
+      <span class=footer-hint>Toss any card with kinetic momentum • Hover to level & stabilize focus</span>
+    </div>
+    <div class=footer-right>
+      <span class=footer-stat><strong id=active-cards-count>6</strong> Cards Floating</span>
+      <span class=footer-divider>•</span>
+      <span class=footer-stat><span class=engine-indicator></span> 60 FPS Engine</span>
+    </div>
+  </footer>
+
+  <script src=js/nav.js></script>
+  <script type=module src=js/app.js></script>
+</body>
+</html>

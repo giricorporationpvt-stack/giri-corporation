@@ -1,0 +1,16 @@
+﻿# Dependencies & Build artifacts
+node_modules/
+dist/
+build/
+.cache/
+
+# Local Dev and Scratch scripts
+scratch/
+.system_generated/
+*.log
+
+# System & OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp

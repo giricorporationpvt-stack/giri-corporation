@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content=width=device-width, initial-scale=1.0>
+  <title>Giri Drift — Mindful Writing & Notes | Giri</title>
+  <meta name=description content=A distraction-free writing and notes app by Giri. Offline first, beautiful typography, 100% private.>
+  
+  <link rel=icon type=image/png href=assets/logo.png?v=2>
+  <link rel=preconnect href=https://fonts.googleapis.com>
+  <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+  <link href=https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap rel=stylesheet>
+  
+  <!-- Inline Anti-FOUC Theme & A11y Hydration -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('giri_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        var f = localStorage.getItem('giri_font_size');
+        if (f && f !== 'normal') document.documentElement.setAttribute('data-font-size', f);
+        var c = localStorage.getItem('giri_contrast');
+        if (c === 'high-contrast') document.documentElement.setAttribute('data-a11y', 'high-contrast');
+      } catch(e) {}
+    })();
+  </script>
+
+  <link rel=stylesheet href=css/styles.css>
+  <link rel="canonical" href="https://giricorporation.pages.dev/drift.html">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+
+</head>
+<body class=enterprise-layout>
+  <div class=ambient-layer aria-hidden=true>
+    <div class=ambient-blur blur-1></div>
+    <div class=ambient-blur blur-2></div>
+    <div class=ambient-grid></div>
+  </div>
+
+  <header class=zoho-header role=banner>
+    <div class=header-container>
+      <a href=index.html class=zoho-brand>
+        <div class=brand-logo-wrap>
+          <img src=assets/logo.png?v=2 alt="Giri Logo" class=brand-logo-img>
+        </div>
+        <div class=brand-text>
+          <span class="brand-name">GIRI</span>
+        </div>
+      </a>
+
+      <nav class=zoho-nav aria-label=Navigation>
+        <div class=nav-item>
+          <a href=index.html class=nav-link><span>Home</span></a>
+        </div>
+                <div class="nav-item">
+          <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-orbit" title="Giri Orbit Sovereign Office Suite"><span>Giri Orbit ↗</span></a>
+        </div>
+        <div class=nav-item>
+          <a href=apps.html class="nav-link is-active-page"><span>Apps and Tools</span></a>
+        </div>
+        <div class=nav-item>
+          <a href=founder.html class=nav-link><span>Founder's Letter</span></a>
+        </div>
+      </nav>
+
+      <div class=zoho-utilities>
+        <div class="live-status-pill" title="99.99% Edge Availability • Sub-15ms Latency">
+          <span class="live-status-dot"></span>
+          <span>Edge 100% Live</span>
+        </div>
+
+        <!-- Luxury Dark/Light Theme Toggle -->
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Theme (Alt+T)">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href=https://www.instagram.com/abhinavgiri45/ target=_blank rel=noopener noreferrer class=founder-nav-pill title="Follow Abhinav Giri on Instagram">
+          <span class="insta-gradient-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></span>
+          <span>@abhinavgiri45</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class=page-scroll-container>
+    <div class=page-inner-wrap>
+      <nav class=page-breadcrumbs>
+        <a href=index.html>Home</a>
+        <span class=breadcrumb-sep>/</span>
+        <a href=apps.html>Apps and Tools</a>
+        <span class=breadcrumb-sep>/</span>
+        <span class=current-page>Giri Drift</span>
+      </nav>
+
+      <!-- App Hero Showcase -->
+      <section class=dedicated-app-hero>
+        <div class=app-hero-badge icon-blue>
+          <svg viewBox=0 0 24 24 width=18 height=18 fill=none stroke=currentColor stroke-width=2>
+            <path d=M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7/>
+            <path d=M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z/>
+          </svg>
+          <span>GIRI DRIFT • MINDFUL WRITING</span>
+        </div>
+        <h1 class=dedicated-hero-title>Quiet your mind.<br>Let your thoughts flow.</h1>
+        <p class=dedicated-hero-sub>A clean, distraction-free writing space engineered for everyday essays, journal reflections, and creative ideas. No ads, no popups, no subscriptions.</p>
+      </section>
+
+      <!-- Interactive Live Drift Editor -->
+      <section class=interactive-demo-card>
+        <div class=demo-card-header>
+          <div class=demo-header-left>
+            <span class=live-pulse-dot></span>
+            <strong>LIVE PLAYGROUND</strong>
+            <span class=sep>•</span>
+            <span>Try typing below. All text remains 100% in your local browser memory.</span>
+          </div>
+          <div class=demo-header-actions>
+            <button type=button class=mini-action-btn id=clear-drift-btn>Clear Text</button>
+            <button type=button class=mini-action-btn primary id=copy-drift-btn>Copy Note</button>
+          </div>
+        </div>
+
+        <div class=live-editor-container>
+          <div class=live-editor-toolbar>
+            <div class=formatting-glyphs>
+              <button type=button class=glyph-btn active title=Bold>B</button>
+              <button type=button class=glyph-btn title=Italic><em>I</em></button>
+              <button type=button class=glyph-btn title=Heading>H1</button>
+              <button type=button class=glyph-btn title=Quote>“</button>
+              <button type=button class=glyph-btn title=Bullet List>•</button>
+            </div>
+            <span class=live-doc-indicator>my_journal.md • Auto-saving locally</span>
+          </div>
+          <textarea id=drift-textarea class=live-writing-surface placeholder=Start writing something wonderful here...>The morning is quiet. 
+
+When you strip away the notifications and the endless popups, writing stops being a chore and returns to what it was always meant to be: a quiet conversation with yourself.
+
+Here is what matters today:
+✓ Take a long walk without headphones
+✓ Spend an hour working on the essay
+✓ Remember to breathe and stay present</textarea>
+          <div class=live-editor-footer>
+            <span id=drift-word-count>56 words • 1 min read</span>
+            <span class=privacy-seal>🔒 100% Private • Stored only on your device</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 Core Pillars -->
+      <section class=dedicated-features-grid>
+        <div class=feature-col>
+          <div class=feature-icon-box icon-blue>
+            <span>🌿</span>
+          </div>
+          <h3>Zero Distractions</h3>
+          <p>No clunky sidebars, ads, or AI popups trying to write for you. Just you and your thoughts.</p>
+        </div>
+        <div class=feature-col>
+          <div class=feature-icon-box icon-emerald>
+            <span>⚡</span>
+          </div>
+          <h3>Instant & Offline</h3>
+          <p>Opens in under 20 milliseconds. Works on airplanes, mountaintops, or wherever inspiration strikes.</p>
+        </div>
+        <div class=feature-col>
+          <div class=feature-icon-box icon-indigo>
+            <span>📖</span>
+          </div>
+          <h3>Exquisite Typography</h3>
+          <p>Typeset with mathematical care. High legibility, gentle contrast, and custom optical sizing.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class=zoho-footer>
+      <div class=footer-inner>
+        <div class=footer-brand-col>
+          <div class=footer-logo>
+            <img src=assets/logo.png?v=2 alt="Giri Logo" class=footer-logo-img>
+            <span class="brand-name">GIRI</span>
+          </div>
+          <p class=footer-tagline>Proudly Made in India. Sovereign, private, and truly affordable software built with care for everyday people by Abhinav Giri.</p>
+          <div class=footer-insta-line>
+            <span>Founder on Instagram:</span>
+            <a href=https://www.instagram.com/abhinavgiri45/ target=_blank rel=noopener noreferrer class=footer-insta-link><span class="insta-gradient-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></span><span>@abhinavgiri45</span></a>
+          </div>
+        </div>
+        <div class=footer-links-group>
+          <div class=col>
+            <h4>Everyday Apps & AI</h4>
+            <a href="https://girionix-ai.pages.dev/" target="_blank" rel="noopener noreferrer" style="color: #7c3aed; font-weight: 600;">Girionix AI (Flagship ↗)</a>
+            <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" style="color: #6366f1; font-weight: 600;">Giri Orbit (Office Suite ↗)</a>
+
+            <a href=drift.html>Giri Drift (Writing)</a>
+            <a href=axis.html>Giri Axis (Money)</a>
+            <a href=kinetic.html>Giri Kinetic (Slides)</a>
+          </div>
+          <div class=col>
+            <h4>Founder & Vision</h4>
+            <a href=founder.html>The Founder's Letter</a>
+            <a href=https://www.instagram.com/abhinavgiri45/ target=_blank rel=noopener noreferrer>Instagram @abhinavgiri45</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src=js/nav.js></script>
+  <script>
+    const textarea = document.getElementById('drift-textarea');
+    const wordCount = document.getElementById('drift-word-count');
+    const clearBtn = document.getElementById('clear-drift-btn');
+    const copyBtn = document.getElementById('copy-drift-btn');
+
+    function updateStats() {
+      const text = textarea.value.trim();
+      const count = text ? text.split(/\s+/).length : 0;
+      const mins = Math.max(1, Math.ceil(count / 200));
+      wordCount.textContent = count + ' words • ' + mins + ' min read';
+    }
+
+    if (textarea) {
+      textarea.addEventListener('input', updateStats);
+      updateStats();
+    }
+
+    if (clearBtn && textarea) {
+      clearBtn.addEventListener('click', () => {
+        textarea.value = '';
+        textarea.focus();
+        updateStats();
+      });
+    }
+
+    if (copyBtn && textarea) {
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(textarea.value).then(() => {
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => copyBtn.textContent = 'Copy Note', 1500);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

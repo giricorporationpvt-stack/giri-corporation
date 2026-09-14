@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apps and Tools — Giri | Proudly Made in India</title>
+  <meta name="description" content="Explore the Giri suite of sovereign, distraction-free, and affordable everyday software tools made in India for students, families, and creators.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png?v=2">
+
+  <!-- Typography: Inter, Newsreader, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Performance Preloads for 1M+ Edge Delivery -->
+  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="preload" href="assets/logo.png?v=2" as="image" fetchpriority="high">
+  <link rel="modulepreload" href="js/modules/studio.js">
+
+  <!-- Inline Anti-FOUC Theme & A11y Hydration -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('giri_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        var f = localStorage.getItem('giri_font_size');
+        if (f && f !== 'normal') document.documentElement.setAttribute('data-font-size', f);
+        var c = localStorage.getItem('giri_contrast');
+        if (c === 'high-contrast') document.documentElement.setAttribute('data-a11y', 'high-contrast');
+      } catch(e) {}
+    })();
+  </script>
+
+  <!-- Design System Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="canonical" href="https://giricorporation.pages.dev/apps.html">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+
+</head>
+<body class="enterprise-layout">
+  <!-- Hidden Google Translate Element Mount for Full-Page Sovereign Translation -->
+  <div id="google_translate_element" style="display:none"></div>
+
+  <!-- Subtle Ambient Atmospheric Canvas -->
+  <div class="ambient-layer" aria-hidden="true">
+    <div class="ambient-blur blur-1"></div>
+    <div class="ambient-blur blur-2"></div>
+    <div class="ambient-blur blur-3"></div>
+    <div class="ambient-grid"></div>
+  </div>
+
+  <!-- Top Navigation Header -->
+  <header class="zoho-header" role="banner">
+    <div class="header-container">
+      <!-- Left: Exact Giri Logo with preserved black background -->
+      <a href="index.html" class="zoho-brand" aria-label="Giri Home">
+        <div class="brand-logo-wrap">
+          <img src="assets/logo.png?v=2" alt="Giri Logo" class="brand-logo-img" width="32" height="32" fetchpriority="high" decoding="async">
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">GIRI</span>
+        </div>
+      </a>
+
+      <!-- Center: Clean, Direct Navigation Links -->
+      <nav class="zoho-nav" aria-label="Navigation">
+        <div class="nav-item">
+          <a href="index.html" class="nav-link"><span>Home</span></a>
+        </div>
+                <div class="nav-item">
+          <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-orbit" title="Giri Orbit Sovereign Office Suite"><span>Giri Orbit ↗</span></a>
+        </div>
+        <div class="nav-item">
+          <a href="apps.html" class="nav-link is-active-page"><span>Apps and Tools</span></a>
+        </div>
+        <div class="nav-item">
+          <a href="founder.html" class="nav-link"><span>Founder's Letter</span></a>
+        </div>
+      </nav>
+
+      <!-- Right: Utility Controls (NO Contact Desk, NO Sign In/Up) -->
+      <div class="zoho-utilities">
+        <div class="live-status-pill" title="99.99% Edge Availability • Sub-15ms Latency">
+          <span class="live-status-dot"></span>
+          <span>Edge 100% Live</span>
+        </div>
+
+        <button type="button" class="util-btn" id="search-trigger-btn" aria-label="Search Giri Tools" title="Search Giri Tools">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button type="button" class="lang-selector" id="lang-selector-btn" title="Language & Region: India (EN)" aria-label="Select Region and Language">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span>India (EN)</span>
+        </button>
+
+        <!-- Luxury Dark/Light Theme Toggle -->
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Theme (Alt+T)">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Accessibility Suite Trigger -->
+        <button type="button" class="a11y-trigger-btn" id="a11y-trigger-btn" aria-label="Accessibility Options" title="Accessibility & Reading Suite (Alt+A)">
+          <span class="a11y-icon-text">Aa</span>
+        </button>
+
+        <a href="https://www.instagram.com/abhinavgiri45/" target="_blank" rel="noopener noreferrer" class="founder-nav-pill" title="Follow Abhinav Giri on Instagram">
+          <span class="insta-gradient-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></span>
+          <span>@abhinavgiri45</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Main Content -->
+  <main class="page-scroll-container">
+    <div class="page-inner-wrap" style="max-width: 1320px;">
+      <!-- Breadcrumb Navigation -->
+      <nav class="page-breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="current-page">Apps and Tools</span>
+      </nav>
+
+      <!-- Apps Catalog Hero -->
+      <header class="apps-catalog-hero">
+        <span class="home-section-eyebrow">THE GIRI SUITE • PROUDLY MADE IN INDIA</span>
+        <h1 class="dedicated-hero-title" style="margin-bottom: 18px;">
+          Dedicated Apps & Tools for Everyday Life
+        </h1>
+        <p class="dedicated-hero-sub" style="max-width: 720px; margin: 0 auto;">
+          Sovereign, fast, and radically affordable digital tools designed for normal users, students, creators, and families. No foreign dollar subscriptions, no intrusive ads, and no data selling.
+        </p>
+      </header>
+
+      <!-- Interactive Filter Bar -->
+      <div class="catalog-filter-bar" role="tablist" aria-label="Filter Applications">
+        <button type="button" class="filter-chip active" data-filter="all" role="tab" aria-selected="true">All Tools (5)</button>
+        <button type="button" class="filter-chip" data-filter="ai" role="tab" aria-selected="false">AI & Polymath</button>
+        <button type="button" class="filter-chip" data-filter="office" role="tab" aria-selected="false">Office Suite (Orbit)</button>
+        <button type="button" class="filter-chip" data-filter="writing" role="tab" aria-selected="false">Writing & Notes</button>
+        <button type="button" class="filter-chip" data-filter="finance" role="tab" aria-selected="false">Finance & Savings</button>
+        <button type="button" class="filter-chip" data-filter="presentation" role="tab" aria-selected="false">Presentations & Decks</button>
+      </div>
+
+      <!-- Interactive Tool Selector Wizard -->
+      <section class="tool-wizard-section" id="tool-wizard-section" aria-label="Interactive Tool Finder" style="padding-top:10px;">
+        <div class="tool-wizard-card">
+          <div class="tool-wizard-header">
+            <span class="tool-wizard-eyebrow">DISCOVER YOUR WORKSPACE</span>
+            <h2 class="tool-wizard-title">What would you like to accomplish today?</h2>
+            <p class="tool-wizard-sub">Select your focus area to instantly get the optimal, zero-subscription Giri application tailored to your needs.</p>
+          </div>
+
+          <div class="wizard-personas-row" role="tablist" aria-label="Workspaces">
+            <button type="button" class="wizard-persona-chip is-active" data-persona="students" role="tab" aria-selected="true">
+              <span>🎓 Students & Education</span>
+            </button>
+            <button type="button" class="wizard-persona-chip" data-persona="writers" role="tab" aria-selected="false">
+              <span>✍️ Mindful Writing</span>
+            </button>
+            <button type="button" class="wizard-persona-chip" data-persona="finance" role="tab" aria-selected="false">
+              <span>💰 Family Finance</span>
+            </button>
+            <button type="button" class="wizard-persona-chip" data-persona="presentations" role="tab" aria-selected="false">
+              <span>💼 Keynote Decks</span>
+            </button>
+            <button type="button" class="wizard-persona-chip" data-persona="ai" role="tab" aria-selected="false">
+              <span>🧠 Polymath AI & Code</span>
+            </button>
+          </div>
+
+          <div class="wizard-recommendation-box" id="wizard-recommendation">
+            <div class="wizard-tool-lead">
+              <span class="wizard-badge" id="wizard-badge">EDUCATION & HOMEWORK • ₹0</span>
+              <h3 class="wizard-tool-name" id="wizard-title">Girionix AI & Student Productivity Suite</h3>
+              <p class="wizard-tool-desc" id="wizard-desc">Solve complex Olympiad mathematics, draft research papers in Drift without distractions, and design school keynote presentations in minutes—with zero dollar subscriptions.</p>
+              <a href="https://girionix-ai.pages.dev/" target="_blank" rel="noopener noreferrer" class="wizard-launch-cta" id="wizard-cta">
+                <span id="wizard-cta-text">Launch Girionix AI Workspace ↗</span>
+                <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+              </a>
+            </div>
+            <div class="wizard-bullets-wrap" id="wizard-bullets">
+              <div class="wizard-bullet-item">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+                <span>KaTeX math proof & Olympiad symbolic derivation engine</span>
+              </div>
+              <div class="wizard-bullet-item">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+                <span>Distraction-free essay notes with instant local autosave</span>
+              </div>
+              <div class="wizard-bullet-item">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+                <span>Rapid slide deck creator for classroom keynotes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The 4 Dedicated App Showcase Cards -->
+      <div class="apps-catalog-grid" id="apps-grid">
+        
+        <!-- App 0: Girionix AI (Flagship AI Workspace) -->
+        <article class="catalog-card flagship-card" data-category="ai">
+          <div class="catalog-top-row">
+            <div class="catalog-icon-box icon-purple">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <span class="catalog-status-tag tag-purple">FLAGSHIP AI • SOVEREIGN WORKSPACE</span>
+          </div>
+
+          <div class="flagship-badge-pill">
+            <span>✨ Envisioned & Engineered by Abhinav Giri</span>
+          </div>
+
+          <h2 class="catalog-title">Girionix AI</h2>
+          <h3 class="catalog-tagline">Sovereign Polymath AI Workspace: Think • Create • Explore</h3>
+          <p class="catalog-desc">
+            The omnipotent sovereign AI workspace that unifies React 18 live code compilation, Hollywood screenplay formatting, Olympiad math derivations, 8K FLUX photorealism, 4K cinema video, and 100% on-device Titan intelligence.
+          </p>
+
+          <ul class="catalog-feature-list">
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Live React 18 & TypeScript IDE with instant in-browser execution</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Screenplay Studio with Hollywood industry scene beat formatting</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Olympiad Math derivation engine with KaTeX symbolic proofing</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>VisionForge 8K FLUX photorealism & cinema video generation</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>100% On-Device & Air-Gapped Titan physical compute mode</span>
+            </li>
+          </ul>
+
+          <a href="https://girionix-ai.pages.dev/" target="_blank" rel="noopener noreferrer" class="catalog-launch-btn flagship-launch-btn">
+            <span>Launch Girionix AI Workspace ↗</span>
+            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+          </a>
+        </article>
+
+                <!-- App: Giri Orbit (Flagship Cloud-Free Office Suite) -->
+        <article class="catalog-card flagship-card" data-category="office" style="border-color: rgba(99, 102, 241, 0.4);">
+          <div class="catalog-top-row">
+            <div class="catalog-icon-box icon-purple" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3.6 9h16.8M3.6 15h16.8"></path>
+                <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
+              </svg>
+            </div>
+            <span class="catalog-status-tag tag-purple" style="background: rgba(99, 102, 241, 0.15); color: #6366f1; border-color: rgba(99, 102, 241, 0.3);">FLAGSHIP OFFICE • CLOUD-FREE</span>
+          </div>
+
+          <div class="flagship-badge-pill">
+            <span>🪐 The Sovereign Cloud-Free Office Suite</span>
+          </div>
+
+          <h2 class="catalog-title">Giri Orbit Suite</h2>
+          <h3 class="catalog-tagline">Complete Sovereign Office Suite: Documents • Sheets • Slides • PDF</h3>
+          <p class="catalog-desc">
+            A comprehensive, cloud-free office productivity powerhouse. Engineered to provide desktop-class office editing with 100% private in-browser compute, no telemetry, and zero subscription costs.
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 16px 0;">
+            <a href="https://giri-orbit.pages.dev/#drift" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--surface-subtle); border: 1px solid var(--border-subtle); border-radius: 6px; text-decoration: none; color: var(--text-primary); font-size: 13.5px; font-weight: 600;">
+              <span style="color: #2563eb;">📄</span>
+              <span>Drift Documents ↗</span>
+            </a>
+            <a href="https://giri-orbit.pages.dev/#axis" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--surface-subtle); border: 1px solid var(--border-subtle); border-radius: 6px; text-decoration: none; color: var(--text-primary); font-size: 13.5px; font-weight: 600;">
+              <span style="color: #10b981;">📊</span>
+              <span>Axis Spreadsheets ↗</span>
+            </a>
+            <a href="https://giri-orbit.pages.dev/#kinetic" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--surface-subtle); border: 1px solid var(--border-subtle); border-radius: 6px; text-decoration: none; color: var(--text-primary); font-size: 13.5px; font-weight: 600;">
+              <span style="color: #f59e0b;">📽️</span>
+              <span>Kinetic Presentations ↗</span>
+            </a>
+            <a href="https://giri-orbit.pages.dev/#pdf" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--surface-subtle); border: 1px solid var(--border-subtle); border-radius: 6px; text-decoration: none; color: var(--text-primary); font-size: 13.5px; font-weight: 600;">
+              <span style="color: #ef4444;">📑</span>
+              <span>Aegis PDF Studio ↗</span>
+            </a>
+          </div>
+
+          <ul class="catalog-feature-list">
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Drift Documents: distraction-free professional word processor</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Axis Spreadsheets: fast client-side calculations and data tables</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Kinetic Presentations: dynamic visual slide deck authoring</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Aegis PDF Studio: merge, split, view, and annotate PDF documents</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>100% In-Browser Privacy: zero cloud upload, air-gap compatible</span>
+            </li>
+          </ul>
+
+          <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" class="catalog-launch-btn flagship-launch-btn" style="background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);">
+            <span>Launch Giri Orbit Hub ↗</span>
+            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+          </a>
+        </article>
+
+        <!-- App 1: Giri Drift -->
+        <article class="catalog-card" data-category="writing">
+          <div class="catalog-top-row">
+            <div class="catalog-icon-box icon-blue">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+              </svg>
+            </div>
+            <span class="catalog-status-tag tag-blue">WRITING • 100% FREE</span>
+          </div>
+
+          <h2 class="catalog-title">Giri Drift</h2>
+          <h3 class="catalog-tagline">Distraction-free mindful notes, journaling & essay writing</h3>
+          <p class="catalog-desc">
+            Crafted for students, thinkers, and writers who need a tranquil, noise-free space. Drift loads instantly, persists your thoughts securely in local storage, and never pesters you with subscription popups.
+          </p>
+
+          <ul class="catalog-feature-list">
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Tranquil focus mode with mathematical optical sizing</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Live word counter & estimated reading time telemetry</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>One-click note clipboard export & auto-save</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>100% Private: your thoughts stay strictly on your machine</span>
+            </li>
+          </ul>
+
+          <a href="drift.html" class="catalog-launch-btn">
+            <span>Open Dedicated Drift Studio</span>
+            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+          </a>
+        </article>
+
+        <!-- App 2: Giri Axis -->
+        <article class="catalog-card" data-category="finance">
+          <div class="catalog-top-row">
+            <div class="catalog-icon-box icon-emerald">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <span class="catalog-status-tag tag-emerald">FINANCE • RUPEE-FIRST</span>
+          </div>
+
+          <h2 class="catalog-title">Giri Axis</h2>
+          <h3 class="catalog-tagline">Visual personal & family finance, savings & budgeting</h3>
+          <p class="catalog-desc">
+            A stress-free visual alternative to 50-row spreadsheets and foreign budgeting apps. Axis helps Indian families and students plan savings goals and visualize compound growth in transparent Indian Rupees (₹).
+          </p>
+
+          <ul class="catalog-feature-list">
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Real-time dynamic 5-year savings projection simulator</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Visual goal milestone cards & monthly budget tracking</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Zero data brokering: never sells your financial data to lenders</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Optimized for Indian Rupee (₹) household economics</span>
+            </li>
+          </ul>
+
+          <a href="axis.html" class="catalog-launch-btn">
+            <span>Open Dedicated Axis Finance</span>
+            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+          </a>
+        </article>
+
+        <!-- App 3: Giri Kinetic -->
+        <article class="catalog-card" data-category="presentation">
+          <div class="catalog-top-row">
+            <div class="catalog-icon-box icon-indigo">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <span class="catalog-status-tag tag-indigo">KEYNOTE • EFFORTLESS</span>
+          </div>
+
+          <h2 class="catalog-title">Giri Kinetic</h2>
+          <h3 class="catalog-tagline">Cinematic story decks & slide presentations in minutes</h3>
+          <p class="catalog-desc">
+            Build clean, executive-quality presentation decks without fighting clunky menus or paying $20/month. Type your core ideas, and Kinetic's spatial grids lay out typography and visuals with cinematic grace.
+          </p>
+
+          <ul class="catalog-feature-list">
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>16:9 cinematic presentation viewport & interactive deck player</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Smart auto-layout: focus on your story, not complex alignment</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Ready for college seminars, business pitches & storytelling</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Instant sharing via web presentation links & one-click export</span>
+            </li>
+          </ul>
+
+          <a href="kinetic.html" class="catalog-launch-btn">
+            <span>Open Dedicated Kinetic Studio</span>
+            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+          </a>
+        </article>
+
+      </div>
+
+      <!-- Why We Build Differently: Comparison Section -->
+      <section class="suite-comparison-section" aria-labelledby="comp-title">
+        <div class="comparison-header">
+          <span class="home-section-eyebrow">THE GIRI COMMITMENT</span>
+          <h2 id="comp-title" class="home-section-title" style="font-size: 30px;">Why We Build Differently</h2>
+          <p class="home-section-desc" style="font-size: 15px;">
+            How Giri's homegrown philosophy compares to typical foreign subscription models.
+          </p>
+        </div>
+
+        <div class="comparison-grid-2col">
+          <!-- Foreign Model -->
+          <div class="comp-col-card foreign">
+            <h3 class="comp-col-title" style="color: #6b7280;">
+              <span style="font-size: 18px;">✕</span>
+              <span>Typical Foreign Software Giants</span>
+            </h3>
+            <ul class="comp-list foreign">
+              <li>
+                <strong>Exorbitant Dollar Pricing:</strong> $12 to $25/month recurring subscriptions (₹1,200 to ₹2,000 every month) that burden Indian students and families.
+              </li>
+              <li>
+                <strong>Surveillance Ad Monetization:</strong> Harvesting private Indian data, selling advertising profiles to third-party data brokers.
+              </li>
+              <li>
+                <strong>Bloated Enterprise Menus:</strong> Hundreds of unnecessary buttons, slow startup times, and constant upgrade notifications.
+              </li>
+              <li>
+                <strong>Heavy Hardware Lock-in:</strong> Require costly modern machines, failing on budget smartphones or everyday PCs.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Giri Model -->
+          <div class="comp-col-card giri">
+            <h3 class="comp-col-title" style="color: #047857;">
+              <span style="font-size: 18px;">✓</span>
+              <span>Giri (Make in India)</span>
+            </h3>
+            <ul class="comp-list giri">
+              <li>
+                <strong>Transparent Rupee Pricing:</strong> Completely free or deeply affordable in honest Indian Rupees (₹) with zero recurring traps.
+              </li>
+              <li>
+                <strong>Sacred Data Privacy:</strong> 100% local persistence on your machine. Zero tracking, zero ads, zero data brokering.
+              </li>
+              <li>
+                <strong>Human-Centric Craft:</strong> Minimalist luxury aesthetics inspired by Apple & Stripe. Clean, fast, and respectful of your attention.
+              </li>
+              <li>
+                <strong>Lightweight & Sovereign:</strong> Engineered locally to run lightning-fast on ordinary smartphones and older laptops across India.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Founder & Vision Banner -->
+      <section class="home-founder-spotlight" style="padding: 0; margin-bottom: 60px;">
+        <div class="founder-spotlight-card" style="background: #ffffff;">
+          <div class="founder-spotlight-profile">
+            <div class="founder-spotlight-avatar">AG</div>
+            <h3 class="founder-spotlight-name">Abhinav Giri</h3>
+            <span class="founder-spotlight-role">Founder & Lead Architect</span>
+            <a href="https://www.instagram.com/abhinavgiri45/" target="_blank" rel="noopener noreferrer" class="founder-spotlight-insta">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              <span>@abhinavgiri45</span>
+            </a>
+          </div>
+
+          <div class="founder-spotlight-content">
+            <span class="founder-spotlight-eyebrow">THE FOUNDER'S LETTER</span>
+            <blockquote class="founder-spotlight-quote" style="font-size: 22px;">
+              “Indian minds have powered global tech for decades. It is time we build world-class, sovereign, and deeply affordable digital tools for our own people.”
+            </blockquote>
+            <p class="founder-spotlight-text">
+              Read the personal letter by founder Abhinav Giri on why he started Giri to build honest, deeply affordable, and homegrown software for everyday Indian citizens.
+            </p>
+            <div class="founder-spotlight-values">
+              <span class="founder-val-chip">Make in India</span>
+              <span class="founder-val-chip">Affordable for All</span>
+              <span class="founder-val-chip">Zero Dollar Subscriptions</span>
+              <span class="founder-val-chip">Sacred Data Privacy</span>
+            </div>
+            <a href="founder.html" class="founder-spotlight-cta">
+              <span>Read The Founder's Letter & Vision →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="zoho-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="footer-brand-col">
+          <div class="footer-logo">
+            <img src="assets/logo.png?v=2" alt="Giri Logo" class="footer-logo-img">
+            <span class="brand-name">GIRI</span>
+          </div>
+          <p class="footer-tagline">Proudly Made in India. Sovereign, private, and truly affordable software built with care for everyday people by Abhinav Giri.</p>
+          <div class="footer-insta-line">
+            <span>Founder on Instagram:</span>
+            <a href="https://www.instagram.com/abhinavgiri45/" target="_blank" rel="noopener noreferrer" class="footer-insta-link"><span class="insta-gradient-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></span><span>@abhinavgiri45</span></a>
+          </div>
+          <span class="copyright">© 2026 Giri. Thoughtfully created for everyone.</span>
+        </div>
+        <div class="footer-links-group">
+          <div class="col">
+            <h4>Everyday Apps & AI</h4>
+            <a href="https://girionix-ai.pages.dev/" target="_blank" rel="noopener noreferrer" style="color: #7c3aed; font-weight: 600;">Girionix AI (Flagship ↗)</a>
+            <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" style="color: #6366f1; font-weight: 600;">Giri Orbit (Office Suite ↗)</a>
+
+            <a href="drift.html">Giri Drift (Writing)</a>
+            <a href="axis.html">Giri Axis (Money)</a>
+            <a href="kinetic.html">Giri Kinetic (Slides)</a>
+          </div>
+          <div class="col">
+            <h4>Founder & Vision</h4>
+            <a href="founder.html">The Founder's Letter</a>
+            <a href="#" class="data-hub-trigger-btn" data-action="open-data-hub">🛡️ Sovereign Data Hub</a>
+            <a href="https://www.instagram.com/abhinavgiri45/" target="_blank" rel="noopener noreferrer">Instagram @abhinavgiri45</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Global Spotlight Search Dialog (Cmd+K / Ctrl+K) -->
+  <dialog id="spotlight-dialog" class="spotlight-dialog">
+    <div class="spotlight-box">
+      <div class="spotlight-header-row">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="search" id="spotlight-search-input" class="spotlight-search-input" placeholder="Search apps, tools, dispatches, founder vision..." autocomplete="off">
+        <span class="spotlight-shortcut-kbd">ESC</span>
+        <button type="button" class="dialog-close-btn" id="spotlight-close-btn" aria-label="Close Search">✕</button>
+      </div>
+      <div class="spotlight-results-wrap" id="spotlight-results-list" role="listbox">
+        <!-- Dynamically rendered by studio.js -->
+      </div>
+      <div class="spotlight-footer-bar">
+        <span>Navigation: Click or Press Enter to open</span>
+        <span>Keyboard Shortcut: <strong>⌘K</strong> or <strong>Ctrl+K</strong></span>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Global Sovereign Region & Language Dialog (All Indian Languages) -->
+  <dialog id="lang-dialog" class="spotlight-dialog lang-dialog">
+    <div class="spotlight-box lang-modal-box">
+      <div class="spotlight-header-row">
+        <div class="lang-modal-title-row">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <div>
+            <span class="lang-modal-title">Select Sovereign Indian Language</span>
+            <span class="lang-modal-subtitle">22 Officially Recognized Indian Languages + Indian English</span>
+          </div>
+        </div>
+        <button type="button" class="dialog-close-btn" id="lang-close-btn" aria-label="Close Language Dialog">✕</button>
+      </div>
+
+      <!-- Quick Language Search -->
+      <div class="lang-search-bar">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="search" id="lang-search-input" placeholder="Search language (e.g. Hindi, Tamil, বাংলা, Telugu, Marathi)..." autocomplete="off">
+        <span class="lang-count-badge" id="lang-count-badge">23 Languages</span>
+      </div>
+
+      <!-- Languages Grid (Populated dynamically) -->
+      <div class="lang-options-grid" id="lang-options-grid" role="listbox">
+        <!-- Rendered by studio.js -->
+      </div>
+
+      <div class="lang-modal-footer">
+        <div class="lang-note">
+          <p>🇮🇳 <strong>Made in India Promise</strong>: All Giri software runs locally on your machine with zero foreign subscription fees, sacred data privacy, and rupee-first financial intelligence.</p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Accessibility Dialog (#a11y-dialog) -->
+  <dialog class="a11y-dialog" id="a11y-dialog" aria-labelledby="a11y-title">
+    <div class="a11y-dialog-backdrop">
+      <div class="a11y-modal-card" role="document">
+        <div class="a11y-header">
+          <div class="a11y-title-wrap">
+            <span style="font-size:18px">♿</span>
+            <h3 id="a11y-title">Accessibility & Comfort Suite</h3>
+          </div>
+          <button type="button" class="hud-close-btn" id="a11y-close-btn" aria-label="Close Accessibility Dialog">✕</button>
+        </div>
+        <div class="a11y-body">
+          <!-- Text Size -->
+          <div class="a11y-control-group">
+            <div class="a11y-label-row">
+              <span class="a11y-label">Font Size Scaling</span>
+              <span class="a11y-hint">Adjust typography scale</span>
+            </div>
+            <div class="a11y-btn-group">
+              <button type="button" class="a11y-btn is-active" data-set-font="normal">Normal (100%)</button>
+              <button type="button" class="a11y-btn" data-set-font="large">Large (115%)</button>
+              <button type="button" class="a11y-btn" data-set-font="xlarge">Extra Large (125%)</button>
+            </div>
+          </div>
+
+          <!-- High Contrast -->
+          <div class="a11y-toggle-row">
+            <div>
+              <div class="a11y-label">High-Contrast Mode</div>
+              <div class="a11y-hint">Maximize contrast for visual clarity (WCAG AAA)</div>
+            </div>
+            <button type="button" class="a11y-btn" id="a11y-contrast-toggle" style="flex:0 0 auto; min-width:90px;">Disabled</button>
+          </div>
+
+          <!-- Reduced Motion -->
+          <div class="a11y-toggle-row">
+            <div>
+              <div class="a11y-label">Reduced Motion</div>
+              <div class="a11y-hint">Silence background ambient animations</div>
+            </div>
+            <button type="button" class="a11y-btn" id="a11y-motion-toggle" style="flex:0 0 auto; min-width:90px;">Full Motion</button>
+          </div>
+
+          <!-- Keyboard Shortcuts summary -->
+          <div style="padding:12px; background:var(--surface-subtle); border-radius:12px; border:1px solid var(--border-subtle); font-size:12px; line-height:1.6; color:var(--text-secondary);">
+            <strong style="color:var(--text-primary);">Keyboard Shortcuts:</strong><br>
+            • <kbd style="padding:1px 5px; border-radius:4px; border:1px solid var(--border-subtle);">Ctrl+K</kbd> or <kbd style="padding:1px 5px; border-radius:4px; border:1px solid var(--border-subtle);">⌘K</kbd> : Spotlight Search<br>
+            • <kbd style="padding:1px 5px; border-radius:4px; border:1px solid var(--border-subtle);">Alt+T</kbd> : Toggle Light / Dark Theme<br>
+            • <kbd style="padding:1px 5px; border-radius:4px; border:1px solid var(--border-subtle);">Alt+A</kbd> : Open Accessibility Options<br>
+            • <kbd style="padding:1px 5px; border-radius:4px; border:1px solid var(--border-subtle);">Alt+1..4</kbd> : Quick Launch Giri Apps
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Sovereign Client-Side Data Hub (#data-hub-dialog) -->
+  <dialog class="data-hub-dialog" id="data-hub-dialog" aria-labelledby="data-hub-title">
+    <div class="data-hub-backdrop">
+      <div class="data-hub-card" role="document">
+        <div class="data-hub-header">
+          <div class="data-hub-title-wrap">
+            <span style="font-size:20px">🛡️</span>
+            <h3 id="data-hub-title">My Sovereign Data Hub</h3>
+          </div>
+          <button type="button" class="hud-close-btn" id="data-hub-close-btn" aria-label="Close Data Hub">✕</button>
+        </div>
+        <div class="data-hub-body">
+          <p style="font-size:13px; line-height:1.6; color:var(--text-secondary);">
+            Every Giri application stores 100% of your notes, budgets, decks, and settings locally on your physical machine. Nothing is ever synchronized to remote server databases.
+          </p>
+
+          <div class="data-hub-stats-grid">
+            <div class="data-stat-pill">
+              <div class="data-stat-val" id="stat-drift-notes">0</div>
+              <div class="data-stat-label">Drift Drafts</div>
+            </div>
+            <div class="data-stat-pill">
+              <div class="data-stat-val" id="stat-axis-entries">0</div>
+              <div class="data-stat-label">Axis Ledger Entries</div>
+            </div>
+            <div class="data-stat-pill">
+              <div class="data-stat-val" id="stat-storage-kb">0.0 KB</div>
+              <div class="data-stat-label">Local Footprint</div>
+            </div>
+          </div>
+
+          <div class="data-hub-guarantee">
+            ✓ <strong>Air-Gapped Sovereign Guarantee</strong>: All data is saved exclusively inside your browser's private Sandboxed Storage. Export anytime or wipe with one click.
+          </div>
+
+          <div class="data-hub-actions-row">
+            <button type="button" class="data-hub-btn-export" id="data-hub-export-btn">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Export All Data (JSON)</span>
+            </button>
+            <button type="button" class="data-hub-btn-reset" id="data-hub-reset-btn">
+              <span>Wipe Local Data</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Mobile Bottom Navigation Dock -->
+  <nav class="mobile-bottom-dock" aria-label="Mobile Navigation">
+    <a href="index.html" class="dock-item" aria-label="Home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="apps.html" class="dock-item is-active" aria-label="Apps">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span>Apps</span>
+    </a>
+    <button type="button" class="dock-item" onclick="document.getElementById('search-trigger-btn')?.click()" aria-label="Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Search</span>
+    </button>
+    <button type="button" class="dock-item theme-toggle-btn" aria-label="Theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <span>Theme</span>
+    </button>
+    <button type="button" class="dock-item" onclick="document.getElementById('a11y-trigger-btn')?.click()" aria-label="Accessibility">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span>A11y</span>
+    </button>
+  </nav>
+
+  <!-- Universal Navigation & Service Worker -->
+  <script src="js/nav.js"></script>
+
+  <!-- Interactive Filtering & Spotlight Search Module -->
+  <script type="module">
+    import { initSpotlightSearch, initLanguageModal } from './js/modules/studio.js';
+    import { translateCurrentPage, getSavedLanguage } from './js/modules/i18n.js';
+
+    initSpotlightSearch();
+    initLanguageModal();
+
+    // Default language is English (en) unless explicitly selected in active session
+    const savedLang = getSavedLanguage();
+    if (savedLang !== 'en') {
+      translateCurrentPage(savedLang);
+    }
+
+    // Tab Filtering
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const cards = document.querySelectorAll('.catalog-card');
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => {
+          c.classList.remove('active');
+          c.setAttribute('aria-selected', 'false');
+        });
+        chip.classList.add('active');
+        chip.setAttribute('aria-selected', 'true');
+
+        const filter = chip.dataset.filter;
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.classList.remove('is-hidden');
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
