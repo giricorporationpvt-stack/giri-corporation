@@ -341,6 +341,7 @@
             <h4>Founder & Vision</h4>
             <a href=founder.html>The Founder's Letter</a>
             <a href="#" class="data-hub-trigger-btn" data-action="open-data-hub">🛡️ Sovereign Data Hub</a>
+            <button type="button" class="shortcuts-footer-btn" id="shortcuts-trigger-footer" style="text-align: left; margin: 4px 0;">⌨️ Shortcuts Guide (?)</button>
             <a href=https://www.instagram.com/abhinavgiri45/ target=_blank rel=noopener noreferrer>Instagram @abhinavgiri45</a>
           </div>
         </div>
@@ -541,6 +542,81 @@
   </nav>
 
   <!-- Universal Navigation & Scripts -->
+  <!-- Practical Feature 2: Keyboard Shortcuts Dialog (Press ? or Shift+/) -->
+  <dialog id="shortcuts-dialog" class="shortcuts-dialog" aria-labelledby="shortcuts-title">
+    <div class="shortcuts-backdrop" data-action="close-shortcuts"></div>
+    <div class="shortcuts-card" role="document">
+      <div class="shortcuts-header">
+        <div class="shortcuts-title-wrap">
+          <h3 id="shortcuts-title">⌨️ Keyboard Navigation Shortcuts</h3>
+          <p>Quick access keys to navigate Giri Corporation</p>
+        </div>
+        <button type="button" class="dialog-close-btn" data-action="close-shortcuts" aria-label="Close Shortcuts Dialog">✕</button>
+      </div>
+      <div class="shortcuts-body">
+        <div>
+          <div class="shortcuts-section-title">Essential Navigation</div>
+          <div class="shortcuts-list">
+            <div class="shortcut-row">
+              <span>Open Global Search & Launcher</span>
+              <div class="shortcut-keys"><kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>/</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Home Page</span>
+              <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>1</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Giri Orbit Hub (Office Suite)</span>
+              <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>2</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Giri Drift (Writing & Notes)</span>
+              <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>3</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Apps & Tools Catalog</span>
+              <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>4</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Founder's Letter</span>
+              <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>5</kbd></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="shortcuts-section-title">Controls & Accessibility</div>
+          <div class="shortcuts-list">
+            <div class="shortcut-row">
+              <span>Toggle Dark / Light Theme</span>
+              <div class="shortcut-keys"><kbd>T</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Open Accessibility Suite (Aa)</span>
+              <div class="shortcut-keys"><kbd>A</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Open This Shortcuts Guide</span>
+              <div class="shortcut-keys"><kbd>?</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Close Any Active Dialog / Modal</span>
+              <div class="shortcut-keys"><kbd>Esc</kbd></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="shortcuts-footer">
+        Giri Corporation • Sovereign Indian Technology • 100% Free & Private
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Global Floating Toast Notification -->
+  <div id="giri-toast" class="giri-toast" role="status" aria-live="polite">
+    <span id="giri-toast-text">✓ Link copied to clipboard!</span>
+  </div>
+
   <script src="js/nav.js"></script>
   <script type="module">
     import { initSpotlightSearch, initLanguageModal } from './js/modules/studio.js';

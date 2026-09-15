@@ -142,10 +142,34 @@
 
       <!-- Right: Utility Controls (NO Contact Desk, NO Sign In/Up) -->
       <div class="zoho-utilities">
-        <!-- Live Edge Status Pill -->
-        <div class="live-status-pill" title="99.99% Edge Availability • Sub-15ms Global Latency">
+        <!-- Live Edge Status Widget & Diagnostics Popover -->
+        <div class="live-status-pill" id="live-status-widget" role="button" tabindex="0" title="Click to view Edge Latency & Offline Status" aria-label="Edge Latency and Offline Status">
           <span class="live-status-dot"></span>
-          <span>Edge 100% Live</span>
+          <span id="live-edge-text">Edge 100% Live</span>
+          <div class="edge-status-flyout" id="edge-status-flyout" hidden>
+            <div style="font-weight: 800; font-size: 13px; margin-bottom: 8px; color: var(--text-primary);">🌐 Edge Diagnostics & Health</div>
+            <div class="edge-flyout-row">
+              <span class="edge-flyout-label">Network Latency:</span>
+              <span class="edge-flyout-val" id="edge-latency-val">24 ms</span>
+            </div>
+            <div class="edge-flyout-row">
+              <span class="edge-flyout-label">Connection:</span>
+              <span class="edge-flyout-val" id="edge-conn-status">Online (Fast)</span>
+            </div>
+            <div class="edge-flyout-row">
+              <span class="edge-flyout-label">Edge PoP:</span>
+              <span class="edge-flyout-val">India Global Mesh</span>
+            </div>
+            <div class="edge-flyout-row">
+              <span class="edge-flyout-label">Data Privacy:</span>
+              <span class="edge-flyout-val" style="color: #059669;">Zero Trackers (100%)</span>
+            </div>
+            <div class="edge-flyout-row">
+              <span class="edge-flyout-label">Offline Cache:</span>
+              <span class="edge-flyout-val" style="color: #059669;">Armed & Ready</span>
+            </div>
+            <button type="button" class="edge-retest-btn" id="edge-retest-btn">⚡ Re-test Latency</button>
+          </div>
         </div>
 
         <!-- Search Trigger -->
@@ -408,7 +432,10 @@
             </svg>
           </a>
           <a href="founder.html" class="fluent-btn-secondary">
-            <span>The Founder's Letter ›</span>
+            <span>The Founder's Letter</span>
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 3l5 5-5 5"></path>
+            </svg>
           </a>
         </div>
 
@@ -794,6 +821,78 @@
       </div>
     </section>
 
+    <!-- Practical Feature 1: Interactive Sovereign Rupee Savings Calculator -->
+    <section class="savings-calc-card" id="savings-calculator" aria-label="Interactive Rupee Savings Calculator">
+      <div class="savings-calc-header">
+        <span class="savings-calc-eyebrow">💰 Sovereign Economics Utility</span>
+        <h2 class="savings-calc-title">Interactive Rupee Savings Calculator</h2>
+        <p class="savings-calc-desc">
+          Calculate the exact rupee wealth kept in your family or team by replacing recurring US Dollar software subscriptions with Giri Sovereign Suite.
+        </p>
+      </div>
+
+      <div class="savings-calc-body">
+        <div class="savings-controls-panel">
+          <div class="savings-control-group">
+            <div class="savings-label-row">
+              <label for="savings-user-count" class="savings-label">Number of Users / Family Members:</label>
+              <span class="savings-slider-val" id="savings-user-display">1 User</span>
+            </div>
+            <input type="range" id="savings-user-count" class="savings-slider" min="1" max="25" value="1" step="1" aria-label="Number of users">
+          </div>
+
+          <div class="savings-control-group">
+            <div class="savings-label-row">
+              <span class="savings-label">Time Horizon:</span>
+            </div>
+            <div class="savings-horizon-row" role="group" aria-label="Time Horizon">
+              <button type="button" class="savings-horizon-btn is-active" data-years="1">1 Year</button>
+              <button type="button" class="savings-horizon-btn" data-years="3">3 Years</button>
+              <button type="button" class="savings-horizon-btn" data-years="5">5 Years</button>
+            </div>
+          </div>
+
+          <div class="savings-control-group">
+            <div class="savings-label-row">
+              <span class="savings-label">Included Sovereign Tools:</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">
+              🪐 Giri Orbit Suite + ✎ Drift Notes + ⛃ Axis Rupee Finance + ◫ Kinetic Presentations + ✦ Girionix AI
+            </p>
+          </div>
+        </div>
+
+        <div class="savings-results-panel">
+          <div class="savings-kpi-badge">
+            <span>✓ 100% Honest Sovereign Math</span>
+          </div>
+          <div class="savings-total-display" id="savings-total-display">
+            ₹35,400
+          </div>
+          <p style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px;">
+            Estimated Total Savings vs Foreign Dollar SaaS
+          </p>
+
+          <div class="savings-breakdown-row">
+            <span class="savings-breakdown-label">Foreign Dollar Subscriptions:</span>
+            <span class="savings-breakdown-cost" id="savings-foreign-cost">₹35,400</span>
+          </div>
+          <div class="savings-breakdown-row">
+            <span class="savings-breakdown-label">Giri Sovereign Suite:</span>
+            <span class="savings-breakdown-giri">₹0 (Free Forever)</span>
+          </div>
+          <div class="savings-breakdown-row">
+            <span class="savings-breakdown-label">Net Sovereign Wealth Retained:</span>
+            <span class="savings-breakdown-giri" id="savings-net-retained">100% (₹35,400)</span>
+          </div>
+
+          <a href="apps.html" class="savings-cta-btn">
+            <span>Explore All Sovereign Tools Free →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Sovereign Trust & Security Architecture Standard -->
     <section class="trust-standards-section" aria-labelledby="trust-sec-title">
       <div class="trust-standards-card">
@@ -953,6 +1052,7 @@
             <h4>Founder & Vision</h4>
             <a href=founder.html>The Founder's Letter</a>
             <a href="#" class="data-hub-trigger-btn" data-action="open-data-hub">🛡️ Sovereign Data Hub</a>
+            <button type="button" class="shortcuts-footer-btn" id="shortcuts-trigger-footer" style="text-align: left; margin: 4px 0;">⌨️ Shortcuts Guide (?)</button>
             <a href=https://www.instagram.com/abhinavgiri45/ target=_blank rel=noopener noreferrer>Instagram @abhinavgiri45</a>
           </div>
         </div>
@@ -1151,6 +1251,81 @@
       <span>A11y</span>
     </button>
   </nav>
+
+  <!-- Practical Feature 2: Keyboard Shortcuts Dialog (Press ? or Shift+/) -->
+  <dialog id="shortcuts-dialog" class="shortcuts-dialog" aria-labelledby="shortcuts-title">
+    <div class="shortcuts-backdrop" data-action="close-shortcuts"></div>
+    <div class="shortcuts-card" role="document">
+      <div class="shortcuts-header">
+        <div class="shortcuts-title-wrap">
+          <h3 id="shortcuts-title">⌨️ Keyboard Navigation Shortcuts</h3>
+          <p>Quick access keys to navigate Giri Corporation</p>
+        </div>
+        <button type="button" class="dialog-close-btn" data-action="close-shortcuts" aria-label="Close Shortcuts Dialog">✕</button>
+      </div>
+      <div class="shortcuts-body">
+        <div>
+          <div class="shortcuts-section-title">Essential Navigation</div>
+          <div class="shortcuts-list">
+            <div class="shortcut-row">
+              <span>Open Global Search & Launcher</span>
+              <div class="shortcut-keys"><kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>/</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Home Page</span>
+              <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>1</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Giri Orbit Hub (Office Suite)</span>
+              <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>2</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Giri Drift (Writing & Notes)</span>
+              <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>3</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Apps & Tools Catalog</span>
+              <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>4</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Founder's Letter</span>
+              <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>5</kbd></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="shortcuts-section-title">Controls & Accessibility</div>
+          <div class="shortcuts-list">
+            <div class="shortcut-row">
+              <span>Toggle Dark / Light Theme</span>
+              <div class="shortcut-keys"><kbd>T</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Open Accessibility Suite (Aa)</span>
+              <div class="shortcut-keys"><kbd>A</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Open This Shortcuts Guide</span>
+              <div class="shortcut-keys"><kbd>?</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span>Close Any Active Dialog / Modal</span>
+              <div class="shortcut-keys"><kbd>Esc</kbd></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="shortcuts-footer">
+        Giri Corporation • Sovereign Indian Technology • 100% Free & Private
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Global Floating Toast Notification -->
+  <div id="giri-toast" class="giri-toast" role="status" aria-live="polite">
+    <span id="giri-toast-text">✓ Link copied to clipboard!</span>
+  </div>
 
   <script src="js/nav.js"></script>
   <!-- Central Module Orchestrator Entrypoint -->

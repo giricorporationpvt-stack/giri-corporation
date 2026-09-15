@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   import('./modules/a11y.js').catch(e => console.warn('A11ySuite load note:', e));
   import('./modules/data_hub.js').catch(e => console.warn('DataHub load note:', e));
   import('./modules/wizard.js').catch(e => console.warn('ToolWizard load note:', e));
+  import('./modules/features.js').then(m => m.initPracticalFeatures()).catch(e => console.warn('Features load note:', e));
 
   // Live Edge Latency Measurement (Every 15 seconds)
   function measureEdgeLatency() {
