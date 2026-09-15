@@ -4,7 +4,7 @@
  * Implements Cache-First / Stale-While-Revalidate for sub-millisecond loads.
  */
 
-const CACHE_NAME = 'giri-edge-v3';
+const CACHE_NAME = 'giri-edge-v5';
 
 const PRECACHE_ASSETS = [
   '/',
