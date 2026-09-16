@@ -2,9 +2,9 @@
 
 > **Sovereign, private, and deeply affordable everyday software proudly made in India by Abhinav Giri.**
 
-[![Made in India](https://img.shields.io/badge/Made%20in-India-FF9933?style=for-the-badge&logo=india&logoColor=white)](https://giricorporation.pages.dev/)
-[![Data Privacy](https://img.shields.io/badge/Privacy-100%25%20Local-10B981?style=for-the-badge)](https://giricorporation.pages.dev/)
-[![Zero Subscriptions](https://img.shields.io/badge/Fees-%E2%82%B90%20Zero%20Dollar%20Subscription-7C3AED?style=for-the-badge)](https://giricorporation.pages.dev/)
+[![Made in India](https://img.shields.io/badge/Made%20in-India-FF9933?style=for-the-badge&logo=india&logoColor=white)](https://giri-corporation.pages.dev/)
+[![Data Privacy](https://img.shields.io/badge/Privacy-100%25%20Local-10B981?style=for-the-badge)](https://giri-corporation.pages.dev/)
+[![Zero Subscriptions](https://img.shields.io/badge/Fees-%E2%82%B90%20Zero%20Dollar%20Subscription-7C3AED?style=for-the-badge)](https://giri-corporation.pages.dev/)
 [![Founder](https://img.shields.io/badge/Founder-Abhinav%20Giri%20(@abhinavgiri45)-E1306C?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/abhinavgiri45/)
 
 ---
@@ -34,19 +34,19 @@ Every application is architected from first principles to prioritize **100% clie
 - **[Kinetic Presentations](https://giri-orbit.pages.dev/#kinetic)**: Dynamic visual decks, slide transition kinematics, and auto-layouts.
 - **[Aegis PDF Studio](https://giri-orbit.pages.dev/#pdf)**: Air-gap compatible PDF merger, annotator, viewer, and document sanitizer.
 
-### 3. [Giri Drift](https://giricorporation.pages.dev/drift.html)
+### 3. [Giri Drift](https://giri-corporation.pages.dev/drift.html)
 *Mindful, Distraction-Free Notes & Journaling.*
 - Minimalist optical typography engineered for focus.
 - Live word counter and reading speed telemetry.
 - Instant localStorage auto-persistence with zero cloud dependence.
 
-### 4. [Giri Axis](https://giricorporation.pages.dev/axis.html)
+### 4. [Giri Axis](https://giri-corporation.pages.dev/axis.html)
 *Rupee-First Personal & Family Wealth Simulator.*
 - Visual 5-year compound savings modeling in Indian Rupees (₹).
 - Inflation-adjusted financial trajectory forecasting.
 - Zero credential requirements: no bank logins, no KYC, no tracking.
 
-### 5. [Giri Kinetic](https://giricorporation.pages.dev/kinetic.html)
+### 5. [Giri Kinetic](https://giri-corporation.pages.dev/kinetic.html)
 *Cinematic Visual Decks & Presentations.*
 - Fluid, modern slide creation with instant presentation mode.
 - Export to standard deck formats.
