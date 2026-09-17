@@ -425,12 +425,12 @@ a {
   font-weight: 800;
   line-height: 1.14;
   letter-spacing: -0.035em;
-  color: #111215;
+  color: var(--text-primary, #0f172a);
   margin-bottom: 20px;
 }
 
 .hero-headline-highlight {
-  color: #111215;
+  color: var(--text-secondary, #1e293b);
 }
 
 /* Signature Red Accent Bar (from reference) */

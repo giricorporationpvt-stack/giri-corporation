@@ -1,29 +1,25 @@
 /**
  * Giri — Sovereign Edge Service Worker (v1.0.0)
  * Engineered for 1,000,000+ users/sec scalability via client-side caching.
- * Implements Cache-First / Stale-While-Revalidate for sub-millisecond loads.
+ * Network-First for Navigation, HTML, CSS, and JS to guarantee instant updates.
  */
 
-const CACHE_NAME = 'giri-edge-v5';
+const CACHE_NAME = 'giri-edge-v9';
 
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/apps.html',
   '/founder.html',
-  '/drift.html',
-  '/axis.html',
-  '/kinetic.html',
-  '/css/styles.css',
+  '/css/styles.css?v=20260917_v9_master',
   '/js/app.js',
   '/js/nav.js',
   '/js/modules/studio.js',
-  '/assets/logo.png',
   '/assets/logo.png?v=2',
   '/assets/logo.svg'
 ];
 
-// Install: Pre-cache critical core application shell
+// Install: Pre-cache critical core application shell and skip waiting immediately
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -34,7 +30,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Activate: Clean up legacy caches and claim clients immediately
+// Activate: Clean up ALL legacy caches and claim clients immediately
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
@@ -48,7 +44,9 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch: Network-First for HTML/Navigations, Stale-While-Revalidate for static assets
+// Fetch Strategy:
+// Network-First for HTML navigations, CSS stylesheets, and JS scripts
+// Cache-First with Network fallback for static media (images, fonts, svg)
 self.addEventListener('fetch', (event) => {
   const { request } = event;
 
@@ -60,8 +58,11 @@ self.addEventListener('fetch', (event) => {
   // Ignore cross-origin external API requests
   if (url.origin !== self.location.origin) return;
 
-  // Navigation / HTML requests: Network-First to guarantee immediate visibility of updates
-  if (request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html')) {
+  const isHtml = request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html') || url.pathname.endsWith('.html');
+  const isCode = url.pathname.endsWith('.css') || url.pathname.endsWith('.js');
+
+  if (isHtml || isCode) {
+    // Network-First: Always fetch fresh updates from edge, fall back to cache only when offline
     event.respondWith(
       fetch(request)
         .then((networkResponse) => {
@@ -76,20 +77,17 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // Media assets (images, icons): Cache-First
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
-      const fetchPromise = fetch(request).then((networkResponse) => {
+      if (cachedResponse) return cachedResponse;
+      return fetch(request).then((networkResponse) => {
         if (networkResponse && networkResponse.status === 200) {
           const responseClone = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(request, responseClone);
-          });
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone));
         }
         return networkResponse;
-      }).catch(() => cachedResponse);
-
-      // Return cached asset immediately for 0ms response, update in background
-      return cachedResponse || fetchPromise;
+      });
     })
   );
 });
