@@ -36,7 +36,7 @@
   </script>
 
   <!-- Design System Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=20260918_v10_showcase">
+  <link rel="stylesheet" href="css/styles.css?v=20260918_v11_msoffice">
   <link rel="canonical" href="https://giri-corporation.pages.dev/">
   <link rel="sitemap" type="application/xml" href="sitemap.xml">
 
@@ -45,22 +45,17 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "name": "Giri",
-        "url": "https://girionix-ai.pages.dev/",
-        "logo": "assets/logo.png?v=2",
-        "founder": {
-          "@type": "Person",
-          "name": "Abhinav Giri",
-          "jobTitle": "Founder & Lead Architect",
-          "sameAs": [
-            "https://www.instagram.com/abhinavgiri45/"
-          ]
-        },
-        "description": "Sovereign, private, and deeply affordable everyday software proudly made in India by Abhinav Giri."
-      },
+    "@type": "Organization",
+    "name": "Giri Corporation",
+    "url": "https://giri-corporation.pages.dev",
+    "logo": "https://giri-corporation.pages.dev/assets/logo.png?v=2",
+    "founder": {
+      "@type": "Person",
+      "name": "Abhinav Giri",
+      "sameAs": "https://www.instagram.com/abhinavgiri45/"
+    },
+    "description": "Indigenous sovereign software ecosystem engineered for 1.4 billion people, students, and businesses in India. Featuring Girionix AI and Giri Orbit cloud-free office suite.",
+    "owns": [
       {
         "@type": "SoftwareApplication",
         "name": "Girionix AI",
@@ -73,27 +68,13 @@
       },
       {
         "@type": "SoftwareApplication",
-        "name": "Giri Drift",
-        "applicationCategory": "WritingApplication",
-        "operatingSystem": "Web",
-        "description": "Mindful, distraction-free notes, markdown writing, and reading telemetry.",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "Giri Axis",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "description": "Visual personal & family finance, compound savings projections in Indian Rupees (₹).",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "Giri Kinetic",
-        "applicationCategory": "PresentationApplication",
-        "operatingSystem": "Web",
-        "description": "Cinematic visual decks and story presentations.",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+        "name": "Giri Orbit",
+        "applicationCategory": "OfficeApplication",
+        "operatingSystem": "Web, Windows, macOS, Android, iOS",
+        "description": "Cloud-free sovereign office suite supporting MS Office file formats (.docx, .xlsx, .pptx, .pdf, .csv): Drift Docs, Axis Sheets, Kinetic Presentations, and Aegis PDF.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+        "author": { "@type": "Person", "name": "Abhinav Giri" },
+        "url": "https://giri-orbit.pages.dev/#hub"
       }
     ]
   }
@@ -562,7 +543,7 @@
               type="search" 
               id="hero-product-search-input" 
               class="hero-search-input" 
-              placeholder="Search Giri products (Orbit, Drift, Axis, Kinetic) or speak..." 
+              placeholder="Search Giri products (Girionix AI, Giri Orbit .docx/.xlsx, Apps) or speak..." 
               autocomplete="off"
               aria-label="Search Giri Products"
               aria-expanded="false"
@@ -598,7 +579,7 @@
               </div>
               <div class="hud-text-block">
                 <span class="hud-status" id="voice-status-text">Listening...</span>
-                <span class="hud-hint">Speak product: "Orbit", "Drift", "Axis", "Kinetic", or "Girionix"</span>
+                <span class="hud-hint">Speak product: "Girionix", "Orbit", "Office", or "Apps"</span>
               </div>
               <!-- Frequency Equalizer Waves -->
               <div class="hud-waveform-bars" aria-hidden="true">
@@ -613,20 +594,13 @@
           </div>
 
           <!-- Functional Products Dropdown Window -->
-          <div class="hero-products-dropdown is-hidden" id="hero-products-dropdown" role="region" aria-label="Matching Products">
+          <div class="hero-products-dropdown is-hidden" id="hero-products-dropdown" role="listbox">
             <div class="dropdown-header">
-              <span class="dropdown-label" id="dropdown-results-count">ALL PRODUCTS (5)</span>
-              <div class="dropdown-filter-chips">
-                <button type="button" class="dropdown-chip is-active" data-chip="all">All</button>
-                <button type="button" class="dropdown-chip" data-chip="ai">AI</button>
-                <button type="button" class="dropdown-chip" data-chip="office">Office</button>
-                <button type="button" class="dropdown-chip" data-chip="writing">Writing</button>
-                <button type="button" class="dropdown-chip" data-chip="finance">Finance</button>
-                <button type="button" class="dropdown-chip" data-chip="slides">Slides</button>
-              </div>
+              <span class="dropdown-label">Flagship Sovereign Platforms & Ecosystem</span>
+              <span class="dropdown-count" id="hero-dropdown-count">4 Applications</span>
             </div>
 
-            <div class="dropdown-products-list" id="dropdown-products-list">
+            <div class="dropdown-items-list" id="hero-dropdown-list">
               <!-- Item 0: Girionix AI (Flagship) -->
               <a href="https://girionix-ai.pages.dev/" target="_blank" rel="noopener noreferrer" class="product-dropdown-item flagship-item" data-product="girionix" data-category="ai" data-keywords="girionix ai artificial intelligence polymath code react ide screenplay math olympiad flux art vision titan">
                 <div class="product-item-icon icon-purple">
@@ -647,8 +621,8 @@
                 </div>
               </a>
 
-                            <!-- Item: Giri Orbit -->
-              <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" class="product-dropdown-item flagship-item" data-product="orbit" data-category="office" data-keywords="orbit office suite drift docs axis sheets kinetic slides aegis pdf cloud free documents spreadsheets word excel powerpoint presentation">
+              <!-- Item: Giri Orbit -->
+              <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" class="product-dropdown-item flagship-item" data-product="orbit" data-category="office" data-keywords="orbit office suite docx xlsx pptx pdf csv word excel powerpoint presentation cloud free drift docs axis sheets kinetic slides ms office">
                 <div class="product-item-icon" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">
                   <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="9"></circle>
@@ -659,9 +633,9 @@
                 <div class="product-item-info">
                   <div class="product-item-title-row">
                     <span class="product-item-title">Giri Orbit Suite</span>
-                    <span class="product-item-tag" style="background: rgba(99, 102, 241, 0.15); color: #6366f1; border: 1px solid rgba(99, 102, 241, 0.3);">FLAGSHIP OFFICE • CLOUD-FREE</span>
+                    <span class="product-item-tag" style="background: rgba(99, 102, 241, 0.15); color: #6366f1; border: 1px solid rgba(99, 102, 241, 0.3);">OFFICE SUITE • .DOCX .XLSX .PPTX</span>
                   </div>
-                  <p class="product-item-desc">Complete sovereign office suite: Drift Docs, Axis Sheets, Kinetic Presentations & Aegis PDF.</p>
+                  <p class="product-item-desc">Sovereign cloud-free office: Word (.docx), Excel (.xlsx), PowerPoint (.pptx) & PDF with 100% private client execution.</p>
                 </div>
                 <div class="product-item-action">
                   <span>Launch ↗</span>
@@ -669,67 +643,48 @@
                 </div>
               </a>
 
-              <!-- Item 1: Giri Drift -->
-              <a href="https://giri-orbit.pages.dev/#drift" target="_blank" rel="noopener noreferrer" class="product-dropdown-item" data-product="drift" data-category="writing" data-keywords="drift notes writing markdown distraction focus journal private essay">
-                <div class="product-item-icon icon-blue">
+              <!-- Item 2: Aegis PDF Studio -->
+              <a href="https://giri-orbit.pages.dev/#pdf" target="_blank" rel="noopener noreferrer" class="product-dropdown-item" data-product="aegis-pdf" data-category="office" data-keywords="pdf aegis studio merge split edit annotate redact document security acrobat">
+                <div class="product-item-icon" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">
                   <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.8" fill="none">
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
                   </svg>
                 </div>
                 <div class="product-item-info">
                   <div class="product-item-title-row">
-                    <span class="product-item-title">Giri Drift</span>
-                    <span class="product-item-tag tag-blue">WRITING • 100% FREE</span>
+                    <span class="product-item-title">Aegis PDF Studio</span>
+                    <span class="product-item-tag" style="background: rgba(239, 68, 68, 0.12); color: #dc2626; border: 1px solid rgba(239, 68, 68, 0.25);">PDF SECURITY • 100% PRIVATE</span>
                   </div>
-                  <p class="product-item-desc">Distraction-free mindful notes, journaling & live reading telemetry.</p>
+                  <p class="product-item-desc">Client-side PDF manipulation: merge, split, annotate, and redact without cloud uploads.</p>
                 </div>
                 <div class="product-item-action">
-                  <span>Launch</span>
-                  <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+                  <span>Launch ↗</span>
+                  <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
                 </div>
               </a>
 
-              <!-- Item 2: Giri Axis -->
-              <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" class="product-dropdown-item" data-product="axis" data-category="finance" data-keywords="axis finance money savings budget rupee compound wealth goals family">
-                <div class="product-item-icon icon-emerald">
-                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.8" fill="none">
-                    <line x1="18" y1="20" x2="18" y2="10"/>
-                    <line x1="12" y1="20" x2="12" y2="4"/>
-                    <line x1="6" y1="20" x2="6" y2="14"/>
-                  </svg>
-                </div>
-                <div class="product-item-info">
-                  <div class="product-item-title-row">
-                    <span class="product-item-title">Giri Axis</span>
-                    <span class="product-item-tag tag-emerald">FINANCE • RUPEE-FIRST</span>
-                  </div>
-                  <p class="product-item-desc">Visual personal & family finance, 5-year savings simulator in ₹.</p>
-                </div>
-                <div class="product-item-action">
-                  <span>Launch</span>
-                  <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
-                </div>
-              </a>
-
-              <!-- Item 3: Giri Kinetic -->
-              <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" class="product-dropdown-item" data-product="kinetic" data-category="slides" data-keywords="kinetic presentations decks slides keynote visual story sharing powerpoint">
+              <!-- Item 3: Apps & Tools Catalog -->
+              <a href="apps.html" class="product-dropdown-item" data-product="apps" data-category="catalog" data-keywords="apps tools catalog directory sovereign offline utilities drift axis kinetic notes finance slides">
                 <div class="product-item-icon icon-indigo">
                   <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.8" fill="none">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                    <line x1="8" y1="21" x2="16" y2="21"/>
-                    <line x1="12" y1="17" x2="12" y2="21"/>
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
                   </svg>
                 </div>
                 <div class="product-item-info">
                   <div class="product-item-title-row">
-                    <span class="product-item-title">Giri Kinetic</span>
-                    <span class="product-item-tag tag-indigo">SLIDES • KEYNOTE</span>
+                    <span class="product-item-title">Apps & Tools Catalog</span>
+                    <span class="product-item-tag tag-indigo">CATALOG • 12+ SOVEREIGN TOOLS</span>
                   </div>
-                  <p class="product-item-desc">Cinematic story decks & slide presentations with smart auto-layout.</p>
+                  <p class="product-item-desc">Explore the complete catalog: Drift Docs, Axis Finance, Kinetic Slides & offline utilities.</p>
                 </div>
                 <div class="product-item-action">
-                  <span>Launch</span>
+                  <span>Explore ›</span>
                   <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
                 </div>
               </a>
@@ -798,32 +753,25 @@
             <span class="quick-ribbon-desc">Polymath AI Workspace</span>
           </div>
         </a>
-                <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" class="quick-ribbon-card">
+        <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" class="quick-ribbon-card">
           <div class="quick-ribbon-icon icon-orbit">🪐</div>
           <div class="quick-ribbon-info">
             <span class="quick-ribbon-title">Giri Orbit ↗ <span class="quick-ribbon-chevron">›</span></span>
-            <span class="quick-ribbon-desc">Cloud-free office suite</span>
+            <span class="quick-ribbon-desc">MS Office Suite (.docx, .xlsx, .pptx)</span>
           </div>
         </a>
-        <a href="https://giri-orbit.pages.dev/#drift" target="_blank" rel="noopener noreferrer" class="quick-ribbon-card">
-          <div class="quick-ribbon-icon icon-drift">✎</div>
+        <a href="https://giri-orbit.pages.dev/#pdf" target="_blank" rel="noopener noreferrer" class="quick-ribbon-card">
+          <div class="quick-ribbon-icon icon-pdf" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">📑</div>
           <div class="quick-ribbon-info">
-            <span class="quick-ribbon-title">Giri Drift <span class="quick-ribbon-chevron">›</span></span>
-            <span class="quick-ribbon-desc">Distraction-free notes</span>
+            <span class="quick-ribbon-title">Aegis PDF Studio ↗ <span class="quick-ribbon-chevron">›</span></span>
+            <span class="quick-ribbon-desc">Client-Side PDF Security</span>
           </div>
         </a>
-        <a href="axis.html" class="quick-ribbon-card">
-          <div class="quick-ribbon-icon icon-axis">⛃</div>
+        <a href="apps.html" class="quick-ribbon-card">
+          <div class="quick-ribbon-icon icon-apps" style="background: rgba(14, 165, 233, 0.1); color: #0284c7;">▦</div>
           <div class="quick-ribbon-info">
-            <span class="quick-ribbon-title">Giri Axis <span class="quick-ribbon-chevron">›</span></span>
-            <span class="quick-ribbon-desc">Rupee-first family finance</span>
-          </div>
-        </a>
-        <a href="kinetic.html" class="quick-ribbon-card">
-          <div class="quick-ribbon-icon icon-kinetic">◫</div>
-          <div class="quick-ribbon-info">
-            <span class="quick-ribbon-title">Giri Kinetic <span class="quick-ribbon-chevron">›</span></span>
-            <span class="quick-ribbon-desc">Keynotes & slide decks</span>
+            <span class="quick-ribbon-title">Apps & Tools <span class="quick-ribbon-chevron">›</span></span>
+            <span class="quick-ribbon-desc">12+ Sovereign Utilities</span>
           </div>
         </a>
       </div>
@@ -926,112 +874,112 @@
     <!-- Curated Core Apps Suite (Clean 3-Card Grid) -->
     <section class="home-suite-section" id="suite-section" aria-label="Featured Applications">
       <div class=home-section-header>
-        <span class=home-section-eyebrow>THE GIRI SUITE</span>
-        <h2 class=home-section-title>Essential Everyday Tools</h2>
-        <p class=home-section-desc>Three sovereign applications crafted for normal users, students, and families. Fast, reliable, and free of foreign subscription paywalls.</p>
+        <span class=home-section-eyebrow>SOVEREIGN DIGITAL PLATFORMS</span>
+        <h2 class=home-section-title>Essential Everyday Ecosystem</h2>
+        <p class=home-section-desc>Sovereign applications crafted for normal citizens, students, and businesses. Fast, private, and 100% free of foreign subscription paywalls.</p>
       </div>
 
       <div class=home-suite-grid>
-        <!-- Card 1: Drift -->
+        <!-- Card 1: Girionix AI -->
         <article class=home-suite-card>
           <div class=home-card-header>
-            <div class="home-card-icon icon-blue">
+            <div class="home-card-icon icon-purple" style="background: rgba(124, 58, 237, 0.1); color: #7c3aed;">
               <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
               </svg>
             </div>
-            <span class="home-card-badge live">WRITING • 100% FREE</span>
+            <span class="home-card-badge live" style="background: rgba(124, 58, 237, 0.12); color: #7c3aed; border-color: rgba(124, 58, 237, 0.25);">FLAGSHIP • SOVEREIGN AI</span>
           </div>
-          <h3 class=home-card-title>Giri Drift</h3>
-          <p class=home-card-tagline>Mindful notes, journaling & distraction-free writing</p>
-          <p class=home-card-desc>Tranquil optical typography, live word counting, and instant local storage without popups or annoying subscriptions.</p>
+          <h3 class=home-card-title>Girionix AI</h3>
+          <p class=home-card-tagline>Omnipotent polymath AI companion for India</p>
+          <p class=home-card-desc>React 18 in-browser execution, Olympiad math KaTeX proofs, Hollywood screenplay beats, and 8K FLUX art with air-gapped Titan privacy.</p>
           <ul class=home-card-features>
             <li>
               <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>Calm, distraction-free focus space</span>
+              <span>Instant React 18 & TypeScript live compiler</span>
             </li>
             <li>
               <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>Real-time word & reading telemetry</span>
+              <span>100% On-device air-gapped physical privacy</span>
             </li>
             <li>
               <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>100% private on your machine</span>
+              <span>Zero dollar recurring API fees or paywalls</span>
             </li>
           </ul>
-          <a href="https://giri-orbit.pages.dev/#drift" target="_blank" rel="noopener noreferrer" class="home-card-btn">
-            <span>Open Giri Drift</span>
-            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+          <a href="https://girionix-ai.pages.dev/" target="_blank" rel="noopener noreferrer" class="home-card-btn">
+            <span>Launch Girionix AI</span>
+            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
           </a>
         </article>
 
-        <!-- Card 2: Axis -->
-        <article class=home-suite-card>
+        <!-- Card 2: Giri Orbit -->
+        <article class=home-suite-card style="border-color: rgba(99, 102, 241, 0.35);">
           <div class=home-card-header>
-            <div class="home-card-icon icon-emerald">
+            <div class="home-card-icon" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">
               <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3.6 9h16.8M3.6 15h16.8"></path>
+                <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
               </svg>
             </div>
-            <span class="home-card-badge live">FINANCE • RUPEE-FIRST</span>
+            <span class="home-card-badge live" style="background: rgba(99, 102, 241, 0.15); color: #6366f1; border-color: rgba(99, 102, 241, 0.3);">OFFICE • .DOCX .XLSX .PPTX</span>
           </div>
-          <h3 class=home-card-title>Giri Axis</h3>
-          <p class=home-card-tagline>Visual personal & family finance, savings & budgeting</p>
-          <p class=home-card-desc>Dynamic 5-year savings projection and clear visual milestone cards designed for Indian household budgets.</p>
+          <h3 class=home-card-title>Giri Orbit</h3>
+          <p class=home-card-tagline>Cloud-free MS Office suite: Word, Excel & Slides</p>
+          <p class=home-card-desc>Unifies Drift Docs (.docx), Axis Sheets (.xlsx, .csv), Kinetic Presentations (.pptx), and Aegis PDF into a private desktop-grade office suite.</p>
           <ul class=home-card-features>
             <li>
               <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>Interactive 5-year savings simulator</span>
+              <span>Native Microsoft Office 2-way file compatibility</span>
             </li>
             <li>
               <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>Zero data brokering or ad monetization</span>
+              <span>100% In-browser: zero telemetry & zero cloud tracking</span>
             </li>
             <li>
               <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>Transparent Indian Rupee (₹) pricing</span>
+              <span>Saves ₹35,000+/year per team in foreign SaaS fees</span>
             </li>
           </ul>
           <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" class="home-card-btn">
-            <span>Open Giri Axis</span>
-            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+            <span>Launch Giri Orbit Hub</span>
+            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
           </a>
         </article>
 
-        <!-- Card 3: Kinetic -->
+        <!-- Card 3: Apps & Tools Catalog -->
         <article class=home-suite-card>
           <div class=home-card-header>
-            <div class="home-card-icon icon-indigo">
+            <div class="home-card-icon icon-indigo" style="background: rgba(14, 165, 233, 0.1); color: #0284c7;">
               <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
               </svg>
             </div>
-            <span class="home-card-badge live">PRESENTATIONS • SMART</span>
+            <span class="home-card-badge live" style="background: rgba(14, 165, 233, 0.12); color: #0284c7; border-color: rgba(14, 165, 233, 0.25);">CATALOG • 12+ SOVEREIGN TOOLS</span>
           </div>
-          <h3 class=home-card-title>Giri Kinetic</h3>
-          <p class=home-card-tagline>Cinematic story decks & slide presentations</p>
-          <p class=home-card-desc>Type your message and let smart spatial grids arrange typography and visuals automatically with fluid slide animations.</p>
+          <h3 class=home-card-title>Apps & Tools Directory</h3>
+          <p class=home-card-tagline>Private, air-gapped utilities for everyday workflows</p>
+          <p class=home-card-desc>Explore our curated catalog featuring Aegis PDF Studio, household rupee finance, distraction-free markdown notes, and offline privacy tools.</p>
           <ul class=home-card-features>
             <li>
               <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>16:9 cinematic keynote viewport</span>
+              <span>Aegis PDF Studio: merge, split & redact securely</span>
             </li>
             <li>
               <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>Smart auto-layout: zero design stress</span>
+              <span>Category filters for Students, Writers & Finance</span>
             </li>
             <li>
               <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>One-click presentation sharing</span>
+              <span>Sub-20ms edge latency & offline flight resilience</span>
             </li>
           </ul>
-          <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" class="home-card-btn">
-            <span>Open Giri Kinetic</span>
+          <a href="apps.html" class="home-card-btn">
+            <span>Explore All Apps & Tools</span>
             <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
           </a>
         </article>
@@ -1284,6 +1232,20 @@
               </tr>
               <tr>
                 <td class="metric-name">
+                  <strong>MS Office File Compatibility</strong>
+                  <small>Word (.docx), Excel (.xlsx), PowerPoint (.pptx) & PDF</small>
+                </td>
+                <td class="cell-giri">
+                  <span class="status-check">✓ Native 2-Way File Compatibility</span>
+                  <span class="metric-note">Giri Orbit parses & edits .docx, .xlsx, .pptx, .pdf, .csv client-side with zero cloud conversion or fees</span>
+                </td>
+                <td class="cell-foreign">
+                  <span class="status-cross">✕ Proprietary Lock-In / Paywalls</span>
+                  <span class="metric-note">Requires recurring Office 365 licensing (₹10,000+/yr) or forces cloud conversions</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="metric-name">
                   <strong>Currency & Foreign Exchange</strong>
                   <small>Impact on domestic capital reserves</small>
                 </td>
@@ -1522,11 +1484,9 @@
           <div class=col>
             <h4>Everyday Apps & AI</h4>
             <a href="https://girionix-ai.pages.dev/" target="_blank" rel="noopener noreferrer" style="color: #7c3aed; font-weight: 600;">Girionix AI (Flagship ↗)</a>
-            <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" style="color: #6366f1; font-weight: 600;">Giri Orbit (Office Suite ↗)</a>
-
-            <a href="https://giri-orbit.pages.dev/#drift" target="_blank" rel="noopener noreferrer">Giri Drift (Writing ↗)</a>
-            <a href=axis.html>Giri Axis (Money)</a>
-            <a href=kinetic.html>Giri Kinetic (Slides)</a>
+            <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" style="color: #6366f1; font-weight: 600;">Giri Orbit (MS Office Suite ↗)</a>
+            <a href="https://giri-orbit.pages.dev/#pdf" target="_blank" rel="noopener noreferrer">Aegis PDF Studio (Privacy)</a>
+            <a href="apps.html" style="font-weight: 600;">Explore All Apps & Tools →</a>
           </div>
           <div class=col>
             <h4>Founder & Vision</h4>
@@ -1678,11 +1638,11 @@
           <div class="data-hub-stats-grid">
             <div class="data-stat-pill">
               <div class="data-stat-val" id="stat-drift-notes">0</div>
-              <div class="data-stat-label">Drift Drafts</div>
+              <div class="data-stat-label">Orbit Local Docs</div>
             </div>
             <div class="data-stat-pill">
               <div class="data-stat-val" id="stat-axis-entries">0</div>
-              <div class="data-stat-label">Axis Ledger Entries</div>
+              <div class="data-stat-label">Secure Local Entries</div>
             </div>
             <div class="data-stat-pill">
               <div class="data-stat-val" id="stat-storage-kb">0.0 KB</div>
@@ -1752,24 +1712,20 @@
               <div class="shortcut-keys"><kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>/</kbd></div>
             </div>
             <div class="shortcut-row">
-              <span>Home Page</span>
+              <span>Girionix AI Workspace</span>
               <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>1</kbd></div>
             </div>
             <div class="shortcut-row">
-              <span>Giri Orbit Hub (Office Suite)</span>
+              <span>Giri Orbit (MS Office Suite)</span>
               <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>2</kbd></div>
             </div>
             <div class="shortcut-row">
-              <span>Giri Drift (Writing & Notes)</span>
+              <span>Apps & Tools Catalog</span>
               <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>3</kbd></div>
             </div>
             <div class="shortcut-row">
-              <span>Apps & Tools Catalog</span>
-              <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>4</kbd></div>
-            </div>
-            <div class="shortcut-row">
               <span>Founder's Letter</span>
-              <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>5</kbd></div>
+              <div class="shortcut-keys"><kbd>Alt</kbd> + <kbd>4</kbd></div>
             </div>
           </div>
         </div>
@@ -1913,45 +1869,38 @@
 
         <!-- Slide 4: Complete Product Ecosystem -->
         <article class="showcase-slide" data-slide="4">
-          <div class="showcase-slide-pill">SLIDE 04 // 05 • THE GIRI EVERYDAY SUITE</div>
-          <h2 class="showcase-slide-title">Five Cohesive Tools Engineered to Power Your Daily Work & Creativity</h2>
+          <div class="showcase-slide-pill">SLIDE 04 // 05 • THE SOVEREIGN ECOSYSTEM</div>
+          <h2 class="showcase-slide-title">Sovereign Software Built for Creativity, Office Work & Privacy</h2>
           <p class="showcase-slide-lead">
-            From cutting-edge generative AI to mindful writing and rupee finance, everything is unified under one sovereign aesthetic.
+            From polymath generative AI to full Microsoft Office file compatibility, everything runs client-side on your terms with zero subscriptions.
           </p>
           <div class="showcase-apps-matrix">
             <div class="showcase-app-cell">
               <span class="app-icon icon-purple">✦</span>
               <div>
-                <strong>Girionix AI</strong>
-                <p>Flagship sovereign AI workspace with live React 18 IDE, Olympiad math derivations & 8K vision.</p>
+                <strong>Girionix AI (Flagship)</strong>
+                <p>Polymath AI workspace with live React 18 IDE, Olympiad math derivations & 8K FLUX art.</p>
               </div>
             </div>
             <div class="showcase-app-cell">
               <span class="app-icon icon-blue">🪐</span>
               <div>
-                <strong>Giri Orbit</strong>
-                <p>Cloud-free sovereign office suite unifying Word processor, Sheets, Slides & Aegis PDF Studio.</p>
+                <strong>Giri Orbit (Office Suite)</strong>
+                <p>Cloud-free MS Office replacement: native support for .docx, .xlsx, .pptx, .pdf & .csv.</p>
               </div>
             </div>
             <div class="showcase-app-cell">
-              <span class="app-icon icon-sky">✎</span>
+              <span class="app-icon icon-sky">📑</span>
               <div>
-                <strong>Giri Drift</strong>
-                <p>Distraction-free optical writing pad with real-time reading telemetry and instant local storage.</p>
+                <strong>Aegis PDF Studio</strong>
+                <p>Client-side PDF manipulation: merge, split, annotate, and redact without cloud uploads.</p>
               </div>
             </div>
             <div class="showcase-app-cell">
-              <span class="app-icon icon-emerald">⛃</span>
+              <span class="app-icon icon-emerald">▦</span>
               <div>
-                <strong>Giri Axis</strong>
-                <p>Rupee-first visual personal & family finance planner with 5-year compound savings modeling.</p>
-              </div>
-            </div>
-            <div class="showcase-app-cell">
-              <span class="app-icon icon-indigo">◫</span>
-              <div>
-                <strong>Giri Kinetic</strong>
-                <p>Cinematic 16:9 presentation deck builder with Apple-grade spring motion and auto-typography.</p>
+                <strong>Sovereign Tools Directory</strong>
+                <p>Complete suite of 12+ private client-side utilities including rupee finance & presentation decks.</p>
               </div>
             </div>
           </div>
@@ -1962,7 +1911,7 @@
           <div class="showcase-slide-pill">SLIDE 05 // 05 • RESILIENT CLOUD-FREE ARCHITECTURE</div>
           <h2 class="showcase-slide-title">Sub-20ms Indian Edge Speed with 100% Offline Flight Mode</h2>
           <p class="showcase-slide-lead">
-            Deployed on globally distributed edge nodes in Mumbai, Delhi, and Bengaluru. Engineered with Service Worker v9 for total offline independence.
+            Deployed on globally distributed edge nodes in Mumbai, Delhi, and Bengaluru. Engineered with Service Worker v11 for total offline independence.
           </p>
           <div class="showcase-slide-grid">
             <div class="showcase-kpi-card">

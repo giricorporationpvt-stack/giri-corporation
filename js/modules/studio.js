@@ -270,20 +270,17 @@ export function initSpotlightSearch() {
   if (!searchDialog || !searchInput || !searchResults) return;
 
   const catalogIndex = [
-    { title: 'Girionix AI', category: 'Flagship AI Workspace', url: 'https://girionix-ai.pages.dev/', desc: 'Sovereign Omnipotent AI: React 18 Live IDE, Hollywood Screenplay, Math & 8K FLUX Art', external: true },
-    { title: 'Giri Orbit', category: 'Flagship Office Suite', url: 'https://giri-orbit.pages.dev/#hub', desc: 'Complete sovereign cloud-free office suite: Drift Docs, Axis Sheets, Kinetic Presentations & Aegis PDF', external: true },
-    { title: 'Drift Documents (Orbit)', category: 'Office Suite', url: 'https://giri-orbit.pages.dev/#drift', desc: 'Cloud-free word processor & document editor', external: true },
-    { title: 'Axis Spreadsheets (Orbit)', category: 'Office Suite', url: 'https://giri-orbit.pages.dev/#axis', desc: 'Fast, client-side financial calculations & data tables', external: true },
-    { title: 'Kinetic Presentations (Orbit)', category: 'Office Suite', url: 'https://giri-orbit.pages.dev/#kinetic', desc: 'Cinematic slide decks & visual presentations', external: true },
-    { title: 'Aegis PDF Studio (Orbit)', category: 'Office Suite', url: 'https://giri-orbit.pages.dev/#pdf', desc: 'Private, in-browser PDF manipulation & editing', external: true },
-    { title: 'Giri Drift', category: 'Writing & Notes', url: 'drift.html', desc: 'Mindful notes, distraction-free markdown journal & reading telemetry' },
-    { title: 'Giri Axis', category: 'Finance & Savings', url: 'axis.html', desc: 'Visual personal & family finance, 5-year savings simulator in ₹' },
-    { title: 'Giri Kinetic', category: 'Presentations & Decks', url: 'kinetic.html', desc: 'Cinematic story decks & slide presentations with smart auto-layout' },
-    { title: 'Apps and Tools', category: 'Catalog Suite', url: 'apps.html', desc: 'Complete catalog of all sovereign applications with category filters' },
-    { title: "Founder's Letter", category: 'Story & Vision', url: 'founder.html', desc: 'Why Abhinav Giri started Giri: Make in India & Affordability' },
-    { title: 'Abhinav Giri (Instagram)', category: 'Connect', url: 'https://www.instagram.com/abhinavgiri45/', desc: 'Follow the founder on Instagram @abhinavgiri45', external: true },
-    { title: 'Make in India Mission', category: 'Philosophy', url: 'founder.html#make-in-india', desc: 'Indigenous software engineered for Indian devices and families' },
-    { title: 'Savings Calculator', category: 'Finance Tool', url: 'index.html#cost-comparison-section', desc: 'Calculate annual savings compared to foreign dollar software' }
+    { title: 'Girionix AI', category: 'Flagship AI Workspace', url: 'https://girionix-ai.pages.dev/', desc: 'Sovereign Omnipotent AI: React 18 Live IDE, Hollywood Screenplay, Math & 8K FLUX Art', external: true, keywords: 'ai code react math olympiad flux python javascript' },
+    { title: 'Giri Orbit', category: 'Flagship Office Suite', url: 'https://giri-orbit.pages.dev/#hub', desc: 'Sovereign MS Office Suite (.docx, .xlsx, .pptx, .pdf, .csv): Word, Excel, Slides & Aegis PDF', external: true, keywords: 'office msoffice ms office docx doc xlsx xls pptx ppt pdf csv word excel powerpoint presentation' },
+    { title: 'Drift Documents (Orbit)', category: 'Office Suite (MS Word)', url: 'https://giri-orbit.pages.dev/#drift', desc: 'Cloud-free word processor with native .docx, .doc, .rtf, .txt support', external: true, keywords: 'drift word docx doc notes writing markdown journal essay' },
+    { title: 'Axis Spreadsheets (Orbit)', category: 'Office Suite (MS Excel)', url: 'https://giri-orbit.pages.dev/#axis', desc: 'Fast client-side spreadsheets with .xlsx, .xls, .csv, and rupee calculations', external: true, keywords: 'axis excel xlsx xls csv spreadsheets finance money savings budget rupee' },
+    { title: 'Kinetic Presentations (Orbit)', category: 'Office Suite (PowerPoint)', url: 'https://giri-orbit.pages.dev/#kinetic', desc: 'Cinematic slide decks with .pptx, .ppt, and auto-layout', external: true, keywords: 'kinetic powerpoint pptx ppt slides decks presentations visual story keynote' },
+    { title: 'Aegis PDF Studio (Orbit)', category: 'Office Suite (PDF)', url: 'https://giri-orbit.pages.dev/#pdf', desc: 'Private in-browser PDF manipulation, merge, split, annotate & redact (.pdf)', external: true, keywords: 'aegis pdf acrobat merge split annotate redact security' },
+    { title: 'Apps and Tools', category: 'Catalog Suite', url: 'apps.html', desc: 'Complete catalog of all 12+ sovereign applications with category filters', keywords: 'apps tools catalog all utilities software sovereign' },
+    { title: "Founder's Letter", category: 'Story & Vision', url: 'founder.html', desc: 'Why Abhinav Giri started Giri: Make in India & Affordability', keywords: 'founder abhinav letter vision mission make in india' },
+    { title: 'Abhinav Giri (Instagram)', category: 'Connect', url: 'https://www.instagram.com/abhinavgiri45/', desc: 'Follow the founder on Instagram @abhinavgiri45', external: true, keywords: 'instagram social connect founder abhinav' },
+    { title: 'Make in India Mission', category: 'Philosophy', url: 'founder.html#make-in-india', desc: 'Indigenous software engineered for Indian devices and families', keywords: 'make in india sovereign indigenous independence' },
+    { title: 'Savings Calculator', category: 'Finance Tool', url: 'index.html#cost-comparison-section', desc: 'Calculate annual savings compared to foreign dollar software', keywords: 'savings calculator roi rupee economics budget' }
   ];
 
   function openSpotlight() {
@@ -362,7 +359,8 @@ export function initSpotlightSearch() {
     const filtered = catalogIndex.filter(item => 
       item.title.toLowerCase().includes(query) ||
       item.category.toLowerCase().includes(query) ||
-      item.desc.toLowerCase().includes(query)
+      item.desc.toLowerCase().includes(query) ||
+      (item.keywords && item.keywords.toLowerCase().includes(query))
     );
 
     renderResults(filtered);

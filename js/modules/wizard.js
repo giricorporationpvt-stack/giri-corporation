@@ -22,8 +22,8 @@ export const WIZARD_DATA = {
     badge: 'DEEP FOCUS • 100% PRIVATE',
     title: 'Giri Drift — Mindful Writing Studio',
     desc: 'An elegant, distraction-free environment for authors, researchers, and students. Pure typography, ambient calm, and zero invasive tracking.',
-    launchUrl: 'drift.html',
-    launchText: 'Open Dedicated Drift Studio',
+    launchUrl: 'https://giri-orbit.pages.dev/#drift',
+    launchText: 'Open Drift on Giri Orbit ↗',
     category: 'writing',
     bullets: [
       'Zero remote tracking, zero ad interruptions',
@@ -35,8 +35,8 @@ export const WIZARD_DATA = {
     badge: 'RUPEE-FIRST • LOCAL STORAGE',
     title: 'Giri Axis — Family & Personal Budgeting',
     desc: 'Visual personal finance designed for Indian households. Track monthly savings, compare expenditures, and build wealth with total privacy.',
-    launchUrl: 'axis.html',
-    launchText: 'Open Dedicated Axis Finance',
+    launchUrl: 'https://giri-orbit.pages.dev/#axis',
+    launchText: 'Open Axis on Giri Orbit ↗',
     category: 'finance',
     bullets: [
       'Visual breakdown of monthly household savings in Rupees',
@@ -48,8 +48,8 @@ export const WIZARD_DATA = {
     badge: 'EFFORTLESS KEYNOTES • QUICK SLIDES',
     title: 'Giri Kinetic — Rapid Slide Presentation Engine',
     desc: 'Build crisp, professional presentation decks in minutes. Clean typographic layouts and intuitive keyboard shortcuts replace bloated software.',
-    launchUrl: 'kinetic.html',
-    launchText: 'Open Dedicated Kinetic Studio',
+    launchUrl: 'https://giri-orbit.pages.dev/#kinetic',
+    launchText: 'Open Kinetic on Giri Orbit ↗',
     category: 'presentation',
     bullets: [
       'Craft full slide decks in less than 3 minutes',

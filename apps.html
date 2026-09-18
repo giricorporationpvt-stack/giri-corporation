@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <!-- Performance Preloads for 1M+ Edge Delivery -->
-  <link rel="preload" href="css/styles.css?v=20260918_v10_showcase" as="style">
+  <link rel="preload" href="css/styles.css?v=20260918_v11_msoffice" as="style">
   <link rel="preload" href="assets/logo.png?v=2" as="image" fetchpriority="high">
   <link rel="modulepreload" href="js/modules/studio.js">
 
@@ -34,7 +34,7 @@
   </script>
 
   <!-- Design System Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=20260918_v10_showcase">
+  <link rel="stylesheet" href="css/styles.css?v=20260918_v11_msoffice">
   <link rel="canonical" href="https://giri-corporation.pages.dev/apps.html">
   <link rel="sitemap" type="application/xml" href="sitemap.xml">
 
@@ -610,7 +610,7 @@
         </article>
 
                 <!-- App: Giri Orbit (Flagship Cloud-Free Office Suite) -->
-        <article class="catalog-card flagship-card" data-category="office" style="border-color: rgba(99, 102, 241, 0.4);">
+        <article class="catalog-card flagship-card" data-category="office" data-keywords="orbit office suite docx xlsx pptx pdf csv word excel powerpoint presentation cloud free drift docs axis sheets kinetic slides aegis pdf msoffice ms office" style="border-color: rgba(99, 102, 241, 0.4);">
           <div class="catalog-top-row">
             <div class="catalog-icon-box icon-purple" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">
               <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -636,22 +636,53 @@
             A comprehensive, cloud-free office productivity powerhouse. Engineered to provide desktop-class office editing with 100% private in-browser compute, no telemetry, and zero subscription costs.
           </p>
 
+          <!-- Microsoft Office File Format Compatibility Strip -->
+          <div class="msoffice-compat-card" style="margin: 16px 0; padding: 14px 16px; background: rgba(99, 102, 241, 0.08); border: 1.5px solid rgba(99, 102, 241, 0.28); border-radius: 8px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 16px;">💼</span>
+                <strong style="font-size: 13.5px; color: var(--text-primary);">Microsoft Office & Industry Standard Compatibility</strong>
+              </div>
+              <span style="font-size: 11px; font-weight: 700; color: #4f46e5; background: rgba(79, 70, 229, 0.12); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(79, 70, 229, 0.25);">NATIVE 2-WAY COMPATIBLE</span>
+            </div>
+            <p style="font-size: 12.5px; color: var(--text-secondary); margin: 0 0 10px 0; line-height: 1.5;">
+              Open, edit, and export existing files without expensive Microsoft 365 licenses or subscriptions. Runs 100% on your device:
+            </p>
+            <div class="msoffice-ext-badges" style="display: flex; flex-wrap: wrap; gap: 7px;">
+              <span class="msoffice-pill" style="display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px; background: rgba(37, 99, 235, 0.12); border: 1px solid rgba(37, 99, 235, 0.3); border-radius: 6px; font-size: 12px; font-weight: 700; color: #2563eb;">
+                <span style="font-weight: 900;">W</span> <code>.docx</code> <code>.doc</code> <span style="font-weight: 500; opacity: 0.85;">(Word)</span>
+              </span>
+              <span class="msoffice-pill" style="display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; font-size: 12px; font-weight: 700; color: #059669;">
+                <span style="font-weight: 900;">X</span> <code>.xlsx</code> <code>.xls</code> <code>.csv</code> <span style="font-weight: 500; opacity: 0.85;">(Excel)</span>
+              </span>
+              <span class="msoffice-pill" style="display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 6px; font-size: 12px; font-weight: 700; color: #d97706;">
+                <span style="font-weight: 900;">P</span> <code>.pptx</code> <code>.ppt</code> <span style="font-weight: 500; opacity: 0.85;">(PowerPoint)</span>
+              </span>
+              <span class="msoffice-pill" style="display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px; background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 6px; font-size: 12px; font-weight: 700; color: #dc2626;">
+                <span style="font-weight: 900;">PDF</span> <code>.pdf</code> <span style="font-weight: 500; opacity: 0.85;">(Acrobat)</span>
+              </span>
+              <span class="msoffice-pill" style="display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px; background: var(--surface-subtle); border: 1px solid var(--border-subtle); border-radius: 6px; font-size: 12px; font-weight: 600; color: var(--text-secondary);">
+                <code>.txt</code> <code>.rtf</code> <code>.md</code> <code>.odt</code>
+              </span>
+            </div>
+          </div>
+
           <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 16px 0;">
             <a href="https://giri-orbit.pages.dev/#drift" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--surface-subtle); border: 1px solid var(--border-subtle); border-radius: 6px; text-decoration: none; color: var(--text-primary); font-size: 13.5px; font-weight: 600;">
               <span style="color: #2563eb;">📄</span>
-              <span>Drift Documents ↗</span>
+              <span>Drift Documents (.docx) ↗</span>
             </a>
             <a href="https://giri-orbit.pages.dev/#axis" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--surface-subtle); border: 1px solid var(--border-subtle); border-radius: 6px; text-decoration: none; color: var(--text-primary); font-size: 13.5px; font-weight: 600;">
               <span style="color: #10b981;">📊</span>
-              <span>Axis Spreadsheets ↗</span>
+              <span>Axis Spreadsheets (.xlsx) ↗</span>
             </a>
             <a href="https://giri-orbit.pages.dev/#kinetic" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--surface-subtle); border: 1px solid var(--border-subtle); border-radius: 6px; text-decoration: none; color: var(--text-primary); font-size: 13.5px; font-weight: 600;">
               <span style="color: #f59e0b;">📽️</span>
-              <span>Kinetic Presentations ↗</span>
+              <span>Kinetic Presentations (.pptx) ↗</span>
             </a>
             <a href="https://giri-orbit.pages.dev/#pdf" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--surface-subtle); border: 1px solid var(--border-subtle); border-radius: 6px; text-decoration: none; color: var(--text-primary); font-size: 13.5px; font-weight: 600;">
               <span style="color: #ef4444;">📑</span>
-              <span>Aegis PDF Studio ↗</span>
+              <span>Aegis PDF Studio (.pdf) ↗</span>
             </a>
           </div>
 
@@ -685,7 +716,7 @@
         </article>
 
         <!-- App 1: Giri Drift -->
-        <article class="catalog-card" data-category="writing">
+        <article class="catalog-card" data-category="writing" data-keywords="drift word docx doc notes writing markdown distraction focus journal private essay">
           <div class="catalog-top-row">
             <div class="catalog-icon-box icon-blue">
               <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -694,6 +725,7 @@
               </svg>
             </div>
             <span class="catalog-status-tag tag-blue">WRITING • 100% FREE</span>
+            <span style="font-size: 11px; font-weight: 700; color: #2563eb; background: rgba(37, 99, 235, 0.1); padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(37, 99, 235, 0.25);">.DOCX .DOC .TXT</span>
             <div style="display: inline-flex; gap: 6px; align-items: center; margin-left: auto;">
               <button type="button" class="catalog-pin-btn" data-pin-id="drift" aria-label="Pin Giri Drift to favorites" title="Pin to top favorites">☆ Pin</button>
               <button type="button" class="tool-share-btn" data-share-title="Giri Drift" data-share-url="https://giri-orbit.pages.dev/#drift" title="Share tool link">🔗 Share</button>
@@ -713,15 +745,11 @@
             </li>
             <li>
               <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>Tranquil focus mode with mathematical optical sizing</span>
+              <span>Native Microsoft Word (.docx, .doc, .rtf) format compatibility</span>
             </li>
             <li>
               <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
               <span>Live word counter & estimated reading time telemetry</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>One-click note clipboard export & auto-save</span>
             </li>
             <li>
               <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
@@ -734,14 +762,11 @@
               <span>Launch Drift on Giri Orbit ↗</span>
               <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
             </a>
-            <a href="https://giri-orbit.pages.dev/#drift" target="_blank" rel="noopener noreferrer" class="catalog-launch-btn catalog-sub-btn">
-              <span>Open Local Notes Studio ›</span>
-            </a>
           </div>
         </article>
 
         <!-- App 2: Giri Axis -->
-        <article class="catalog-card" data-category="finance">
+        <article class="catalog-card" data-category="finance" data-keywords="axis excel xlsx xls csv finance money savings budget rupee compound wealth goals family">
           <div class="catalog-top-row">
             <div class="catalog-icon-box icon-emerald">
               <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -751,9 +776,10 @@
               </svg>
             </div>
             <span class="catalog-status-tag tag-emerald">FINANCE • RUPEE-FIRST</span>
+            <span style="font-size: 11px; font-weight: 700; color: #059669; background: rgba(16, 185, 129, 0.1); padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.25);">.XLSX .XLS .CSV</span>
             <div style="display: inline-flex; gap: 6px; align-items: center; margin-left: auto;">
               <button type="button" class="catalog-pin-btn" data-pin-id="axis" aria-label="Pin Giri Axis to favorites" title="Pin to top favorites">☆ Pin</button>
-              <button type="button" class="tool-share-btn" data-share-title="Giri Axis" data-share-url="axis.html" title="Share tool link">🔗 Share</button>
+              <button type="button" class="tool-share-btn" data-share-title="Giri Axis" data-share-url="https://giri-orbit.pages.dev/#axis" title="Share tool link">🔗 Share</button>
             </div>
           </div>
 
@@ -766,30 +792,30 @@
           <ul class="catalog-feature-list">
             <li>
               <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>Real-time dynamic 5-year savings projection simulator</span>
+              <span>Full cloud-free spreadsheets: <a href="https://giri-orbit.pages.dev/#axis" target="_blank" rel="noopener noreferrer" style="color: #059669; font-weight: 700; text-decoration: underline;">Axis on Giri Orbit ↗</a></span>
             </li>
             <li>
               <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>Visual goal milestone cards & monthly budget tracking</span>
+              <span>Microsoft Excel (.xlsx, .xls, .csv) compatible import & export</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Real-time dynamic 5-year savings projection simulator in ₹</span>
             </li>
             <li>
               <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
               <span>Zero data brokering: never sells your financial data to lenders</span>
             </li>
-            <li>
-              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>Optimized for Indian Rupee (₹) household economics</span>
-            </li>
           </ul>
 
-          <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" class="catalog-launch-btn">
-            <span>Open Dedicated Axis Finance</span>
-            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+          <a href="https://giri-orbit.pages.dev/#axis" target="_blank" rel="noopener noreferrer" class="catalog-launch-btn flagship-launch-btn" style="background: linear-gradient(135deg, #059669 0%, #047857 100%);">
+            <span>Launch Axis on Giri Orbit ↗</span>
+            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
           </a>
         </article>
 
         <!-- App 3: Giri Kinetic -->
-        <article class="catalog-card" data-category="presentation">
+        <article class="catalog-card" data-category="presentation" data-keywords="kinetic powerpoint pptx ppt slides keynote decks presentations visual story sharing">
           <div class="catalog-top-row">
             <div class="catalog-icon-box icon-indigo">
               <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -799,9 +825,10 @@
               </svg>
             </div>
             <span class="catalog-status-tag tag-indigo">KEYNOTE • EFFORTLESS</span>
+            <span style="font-size: 11px; font-weight: 700; color: #d97706; background: rgba(245, 158, 11, 0.1); padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(245, 158, 11, 0.25);">.PPTX .PPT .PDF</span>
             <div style="display: inline-flex; gap: 6px; align-items: center; margin-left: auto;">
               <button type="button" class="catalog-pin-btn" data-pin-id="kinetic" aria-label="Pin Giri Kinetic to favorites" title="Pin to top favorites">☆ Pin</button>
-              <button type="button" class="tool-share-btn" data-share-title="Giri Kinetic" data-share-url="kinetic.html" title="Share tool link">🔗 Share</button>
+              <button type="button" class="tool-share-btn" data-share-title="Giri Kinetic" data-share-url="https://giri-orbit.pages.dev/#kinetic" title="Share tool link">🔗 Share</button>
             </div>
           </div>
 
@@ -814,25 +841,25 @@
           <ul class="catalog-feature-list">
             <li>
               <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Full cloud-free presentation studio: <a href="https://giri-orbit.pages.dev/#kinetic" target="_blank" rel="noopener noreferrer" style="color: #d97706; font-weight: 700; text-decoration: underline;">Kinetic on Giri Orbit ↗</a></span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+              <span>Microsoft PowerPoint (.pptx, .ppt) format compatibility</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
               <span>16:9 cinematic presentation viewport & interactive deck player</span>
             </li>
             <li>
               <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
               <span>Smart auto-layout: focus on your story, not complex alignment</span>
             </li>
-            <li>
-              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>Ready for college seminars, business pitches & storytelling</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-              <span>Instant sharing via web presentation links & one-click export</span>
-            </li>
           </ul>
 
-          <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" class="catalog-launch-btn">
-            <span>Open Dedicated Kinetic Studio</span>
-            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>
+          <a href="https://giri-orbit.pages.dev/#kinetic" target="_blank" rel="noopener noreferrer" class="catalog-launch-btn flagship-launch-btn" style="background: linear-gradient(135deg, #d97706 0%, #b45309 100%);">
+            <span>Launch Kinetic on Giri Orbit ↗</span>
+            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
           </a>
         </article>
 
@@ -954,11 +981,11 @@
           <div class="col">
             <h4>Everyday Apps & AI</h4>
             <a href="https://girionix-ai.pages.dev/" target="_blank" rel="noopener noreferrer" style="color: #7c3aed; font-weight: 600;">Girionix AI (Flagship ↗)</a>
-            <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" style="color: #6366f1; font-weight: 600;">Giri Orbit (Office Suite ↗)</a>
-
-            <a href="https://giri-orbit.pages.dev/#drift" target="_blank" rel="noopener noreferrer">Giri Drift (Writing)</a>
-            <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer">Giri Axis (Money)</a>
-            <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer">Giri Kinetic (Slides)</a>
+            <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" style="color: #6366f1; font-weight: 600;">Giri Orbit (MS Office Suite ↗)</a>
+            <a href="https://giri-orbit.pages.dev/#drift" target="_blank" rel="noopener noreferrer">Drift Docs (.docx ↗)</a>
+            <a href="https://giri-orbit.pages.dev/#axis" target="_blank" rel="noopener noreferrer">Axis Sheets (.xlsx ↗)</a>
+            <a href="https://giri-orbit.pages.dev/#kinetic" target="_blank" rel="noopener noreferrer">Kinetic Slides (.pptx ↗)</a>
+            <a href="https://giri-orbit.pages.dev/#pdf" target="_blank" rel="noopener noreferrer">Aegis PDF Studio (.pdf ↗)</a>
           </div>
           <div class="col">
             <h4>Founder & Vision</h4>

@@ -1,4 +1,4 @@
-﻿# Giri Corporation 🪐
+# Giri Corporation 🪐
 
 > **Sovereign, private, and deeply affordable everyday software proudly made in India by Abhinav Giri.**
 
@@ -68,15 +68,11 @@ Every application is architected from first principles to prioritize **100% clie
 ```
 .
 ├── index.html            # Flagship homepage with Fluent 2 spotlight & quick ribbon
-├── apps.html             # Complete apps & tools catalog with category filters
+├── apps.html             # Complete apps & tools catalog with MS Office compatibility
 ├── founder.html          # Letter from Founder Abhinav Giri with voice narration
-├── drift.html            # Dedicated Giri Drift writing studio
-├── axis.html             # Dedicated Giri Axis financial simulator
-├── kinetic.html          # Dedicated Giri Kinetic presentation studio
-├── canvas.html           # Anti-gravity workspace redirect
-├── sitemap.xml           # Production XML sitemap for search engines
+├── sitemap.xml           # Production XML sitemap (canonical 4 pages)
 ├── robots.txt            # Search crawler directives
-├── sw.js                 # Sovereign Edge PWA service worker (giri-edge-v3)
+├── sw.js                 # Sovereign Edge PWA service worker (giri-edge-v11)
 ├── css/
 │   └── styles.css        # Complete unified design system & Fluent styling
 ├── js/

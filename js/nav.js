@@ -139,17 +139,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const themeBtn = document.querySelector('.theme-toggle-btn');
       if (themeBtn) themeBtn.click();
     }
-    // Alt+1..5: Quick Launch Apps
+    // Alt+1..4: Quick Launch Apps
     if (e.altKey && e.key === '1') {
       window.open('https://girionix-ai.pages.dev/', '_blank');
     } else if (e.altKey && e.key === '2') {
-      window.location.href = 'drift.html';
-    } else if (e.altKey && e.key === '3') {
-      window.location.href = 'axis.html';
-    } else if (e.altKey && e.key === '4') {
-      window.location.href = 'kinetic.html';
-    } else if (e.altKey && e.key === '5') {
       window.open('https://giri-orbit.pages.dev/#hub', '_blank');
+    } else if (e.altKey && e.key === '3') {
+      window.location.href = 'apps.html';
+    } else if (e.altKey && e.key === '4') {
+      window.location.href = 'founder.html';
     }
   });
 
