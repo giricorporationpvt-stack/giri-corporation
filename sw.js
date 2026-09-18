@@ -4,16 +4,17 @@
  * Network-First for Navigation, HTML, CSS, and JS to guarantee instant updates.
  */
 
-const CACHE_NAME = 'giri-edge-v9';
+const CACHE_NAME = 'giri-edge-v10';
 
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/apps.html',
   '/founder.html',
-  '/css/styles.css?v=20260917_v9_master',
+  '/css/styles.css?v=20260918_v10_showcase',
   '/js/app.js',
   '/js/nav.js',
+  '/js/modules/features.js',
   '/js/modules/studio.js',
   '/assets/logo.png?v=2',
   '/assets/logo.svg'

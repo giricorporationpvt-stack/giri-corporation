@@ -1,10 +1,11 @@
 /**
- * GIRI — PRACTICAL FEATURES SUITE
- * 1. Interactive Sovereign Rupee Savings Calculator
- * 2. Keyboard Navigation Shortcuts HUD (? or Shift+/)
- * 3. App Quick-Pin / Sovereign Favorites System (localStorage)
- * 4. Live Edge Latency & Offline Diagnostics Flyout
- * 5. Quick Share Links & Sovereign Toast Notifications
+ * GIRI — PRACTICAL FEATURES & EXECUTIVE OFFICE SHOWCASE SUITE
+ * 1. Interactive Sovereign Rupee Savings & Team ROI Calculator
+ * 2. Executive Pitch Presentation Deck (Office Showcase Mode)
+ * 3. Live Edge Latency, Diagnostics & Simulated Offline Flight Mode
+ * 4. Keyboard Navigation Shortcuts HUD (? or Shift+/)
+ * 5. App Quick-Pin / Sovereign Favorites System (localStorage)
+ * 6. Quick Share Links, Pitch Copier & Sovereign Toast Notifications
  */
 
 // Helper to format Indian Rupees (e.g. 35400 -> "₹35,400", 177000 -> "₹1,77,000")
@@ -18,7 +19,7 @@ function formatINR(amount) {
   return '₹' + otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + lastThree;
 }
 
-// 1. INTERACTIVE SAVINGS CALCULATOR
+// 1. INTERACTIVE SAVINGS & TEAM ROI CALCULATOR
 export function initSavingsCalculator() {
   const section = document.getElementById('savings-calculator');
   if (!section) return;
@@ -28,29 +29,35 @@ export function initSavingsCalculator() {
   const totalDisplay = document.getElementById('savings-total-display');
   const foreignCostEl = document.getElementById('savings-foreign-cost');
   const netRetainedEl = document.getElementById('savings-net-retained');
+  const forexValEl = document.getElementById('savings-forex-val');
   const horizonBtns = section.querySelectorAll('.savings-horizon-btn');
+  const presetChips = section.querySelectorAll('.savings-preset-chip');
+  const copyRoiBtn = document.getElementById('copy-roi-report-btn');
 
   let currentUsers = 1;
   let currentYears = 1;
 
   // Commercial US Dollar SaaS cost per user per year in INR:
+  // Microsoft 365 ($12.50/mo) = ₹12,480/yr
   // Notion ($10/mo) = ₹9,960/yr
-  // Office 365 ($12.50/mo) = ₹12,480/yr
-  // Canva/Pitch ($13/mo) = ₹12,960/yr
-  // Total = ₹35,400 per user per year
-  const ANNUAL_PER_USER = 35400;
+  // ChatGPT Plus / Copilot ($20/mo) = ₹19,920/yr
+  // Total = ~₹42,000 per user per year (~$500 USD)
+  const ANNUAL_PER_USER_INR = 42000;
+  const ANNUAL_PER_USER_USD = 500;
 
   function updateMath() {
-    const totalSavings = currentUsers * ANNUAL_PER_USER * currentYears;
-    const formatted = formatINR(totalSavings);
+    const totalSavingsINR = currentUsers * ANNUAL_PER_USER_INR * currentYears;
+    const totalSavingsUSD = currentUsers * ANNUAL_PER_USER_USD * currentYears;
+    const formattedINR = formatINR(totalSavingsINR);
+    const formattedUSD = '$' + totalSavingsUSD.toLocaleString('en-US') + ' USD';
 
     if (userDisplay) {
-      userDisplay.textContent = currentUsers === 1 ? '1 User' : currentUsers + ' Users';
+      userDisplay.textContent = currentUsers === 1 ? '1 Solo User' : currentUsers + ' Office Seats';
     }
 
     if (totalDisplay) {
-      totalDisplay.textContent = formatted;
-      totalDisplay.style.transform = 'scale(1.05)';
+      totalDisplay.textContent = formattedINR;
+      totalDisplay.style.transform = 'scale(1.04)';
       setTimeout(() => {
         totalDisplay.style.transform = 'scale(1)';
         totalDisplay.style.transition = 'transform 0.15s ease';
@@ -58,12 +65,22 @@ export function initSavingsCalculator() {
     }
 
     if (foreignCostEl) {
-      foreignCostEl.textContent = formatted;
+      foreignCostEl.textContent = formattedINR;
     }
 
     if (netRetainedEl) {
-      netRetainedEl.textContent = '100% (' + formatted + ')';
+      netRetainedEl.textContent = '100% (' + formattedINR + ')';
     }
+
+    if (forexValEl) {
+      forexValEl.textContent = formattedUSD;
+    }
+
+    // Update preset chip highlights
+    presetChips.forEach(chip => {
+      const seats = parseInt(chip.getAttribute('data-seats'), 10);
+      chip.classList.toggle('is-active', seats === currentUsers);
+    });
   }
 
   if (slider) {
@@ -72,6 +89,16 @@ export function initSavingsCalculator() {
       updateMath();
     });
   }
+
+  presetChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const seats = parseInt(chip.getAttribute('data-seats'), 10) || 1;
+      currentUsers = seats;
+      if (slider) slider.value = currentUsers;
+      updateMath();
+      showToast(`Configured for ${currentUsers} ${currentUsers === 1 ? 'Seat' : 'Seats'}`);
+    });
+  });
 
   horizonBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -82,10 +109,307 @@ export function initSavingsCalculator() {
     });
   });
 
+  // Copy Team ROI Report button for office presentations
+  if (copyRoiBtn) {
+    copyRoiBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const totalSavingsINR = currentUsers * ANNUAL_PER_USER_INR * currentYears;
+      const totalSavingsUSD = currentUsers * ANNUAL_PER_USER_USD * currentYears;
+      const report = 
+`📊 EXECUTIVE ROI SUMMARY — GIRI SOVEREIGN SUITE
+• Organization Scope: ${currentUsers} ${currentUsers === 1 ? 'Seat' : 'Seats'} over ${currentYears} ${currentYears === 1 ? 'Year' : 'Years'}
+• Net Rupee Savings: ${formatINR(totalSavingsINR)} retained in India
+• Forex Outflow Prevented: $${totalSavingsUSD.toLocaleString('en-US')} USD
+• Included Tools: Giri Orbit (Office Suite) + Girionix AI + Drift (Notes) + Axis (Finance) + Kinetic (Decks)
+• Data Sanctity: 100% Client-Side, 0 Trackers, 100% Air-Gapped
+• Learn More: https://giri-corporation.pages.dev/`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(report)
+          .then(() => showToast('✓ Team ROI Summary copied to clipboard!'))
+          .catch(() => showToast('✓ Report ready'));
+      } else {
+        showToast('✓ Report ready');
+      }
+    });
+  }
+
   updateMath();
 }
 
-// 2. KEYBOARD SHORTCUTS HUD
+// 2. EXECUTIVE PITCH PRESENTATION DECK (OFFICE SHOWCASE MODE)
+export function initShowcaseDeck() {
+  const dialog = document.getElementById('showcase-deck-dialog');
+  const triggerBtns = document.querySelectorAll('#open-showcase-btn, #open-showcase-hero-btn, #hero-showcase-trigger, [data-action="open-showcase"]');
+  const closeBtns = document.querySelectorAll('[data-action="close-showcase"]');
+  const prevBtn = document.getElementById('showcase-prev-btn');
+  const nextBtn = document.getElementById('showcase-next-btn');
+  const counterEl = document.getElementById('showcase-slide-counter');
+  const copyPitchBtn = document.getElementById('copy-pitch-summary-btn');
+  const slides = document.querySelectorAll('.showcase-slide');
+  const dots = document.querySelectorAll('.showcase-dot');
+
+  let currentSlide = 0;
+  const totalSlides = slides.length || 5;
+
+  function renderSlide(index) {
+    if (slides.length === 0) return;
+    currentSlide = (index + totalSlides) % totalSlides;
+
+    slides.forEach((slide, idx) => {
+      slide.classList.toggle('is-active', idx === currentSlide);
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('is-active', idx === currentSlide);
+      dot.setAttribute('aria-selected', idx === currentSlide ? 'true' : 'false');
+    });
+
+    if (counterEl) {
+      counterEl.textContent = `0${currentSlide + 1} // 0${totalSlides}`;
+    }
+  }
+
+  function openDeck() {
+    if (!dialog) return;
+    renderSlide(0);
+    if (typeof dialog.showModal === 'function') {
+      dialog.showModal();
+    } else {
+      dialog.setAttribute('open', '');
+    }
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDeck() {
+    if (!dialog) return;
+    if (typeof dialog.close === 'function') {
+      dialog.close();
+    } else {
+      dialog.removeAttribute('open');
+    }
+    document.body.style.overflow = '';
+  }
+
+  triggerBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openDeck();
+    });
+  });
+
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeDeck();
+    });
+  });
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      renderSlide(currentSlide - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      renderSlide(currentSlide + 1);
+    });
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.getAttribute('data-slide-idx'), 10) || 0;
+      renderSlide(idx);
+    });
+  });
+
+  if (dialog) {
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) closeDeck();
+    });
+  }
+
+  // Copy Executive Pitch Summary
+  if (copyPitchBtn) {
+    copyPitchBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pitch = 
+`🌟 GIRI CORPORATION — EXECUTIVE OFFICE SHOWCASE
+Founder: Abhinav Giri | Domain: https://giri-corporation.pages.dev/
+
+Why Giri for Our Organization:
+1. Economic Independence: Replaces recurring $55/seat/month foreign SaaS with a 100% free sovereign suite.
+2. Sacred Client Privacy: Zero third-party trackers, zero data harvesting, and air-gapped file security.
+3. Complete Ecosystem:
+   • Girionix AI — Polymath workspace (React IDE, Math Olympiad, 8K Vision)
+   • Giri Orbit — Cloud-free office suite (Docs, Sheets, Slides, PDF Studio)
+   • Giri Drift — Distraction-free mindful notes
+   • Giri Axis — Rupee-first personal & family finance
+   • Giri Kinetic — Cinematic visual presentations
+4. Sub-20ms Indian Edge Speed: Direct edge nodes in Mumbai, Delhi & Bengaluru.
+5. 100% Offline Flight Mode: Works without active internet via Service Worker v9.`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pitch)
+          .then(() => showToast('✓ Executive Pitch copied to clipboard!'))
+          .catch(() => showToast('✓ Pitch summary ready'));
+      }
+    });
+  }
+
+  // Global Keyboard Navigation
+  window.addEventListener('keydown', (e) => {
+    // Alt+S opens showcase deck anytime
+    if (e.altKey && (e.key === 's' || e.key === 'S')) {
+      e.preventDefault();
+      if (dialog && dialog.open) {
+        closeDeck();
+      } else {
+        openDeck();
+      }
+      return;
+    }
+
+    if (!dialog || !dialog.open) return;
+
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      e.preventDefault();
+      renderSlide(currentSlide + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      renderSlide(currentSlide - 1);
+    } else if (e.key === 'Escape') {
+      closeDeck();
+    }
+  });
+}
+
+// 3. LIVE EDGE LATENCY, DIAGNOSTICS & SIMULATED OFFLINE FLIGHT MODE
+export function initEdgeStatusWidget() {
+  const widget = document.getElementById('live-status-widget');
+  const flyout = document.getElementById('edge-status-flyout');
+  const latencyEl = document.getElementById('edge-latency-val');
+  const connStatusEl = document.getElementById('edge-conn-status');
+  const liveEdgeText = document.getElementById('live-edge-text');
+  const retestBtn = document.getElementById('edge-retest-btn');
+  const offlineSimBtn = document.getElementById('edge-offline-sim-btn');
+
+  let isSimulatingOffline = false;
+  let offlineBanner = null;
+
+  if (!widget) return;
+
+  function runPing() {
+    if (isSimulatingOffline) {
+      if (latencyEl) latencyEl.textContent = '0 ms (Local Cache)';
+      return;
+    }
+    if (latencyEl) latencyEl.textContent = 'Measuring...';
+    const start = performance.now();
+
+    fetch('assets/logo.png?t=' + Date.now(), { method: 'HEAD', cache: 'no-store' })
+      .then(() => {
+        const ms = Math.max(11, Math.round(performance.now() - start));
+        if (latencyEl) latencyEl.textContent = ms + ' ms';
+      })
+      .catch(() => {
+        if (latencyEl) latencyEl.textContent = '< 15 ms (Edge Cache)';
+      });
+  }
+
+  widget.addEventListener('click', (e) => {
+    if (e.target.closest('.edge-status-flyout')) return;
+    if (flyout) {
+      const isHidden = flyout.hasAttribute('hidden');
+      if (isHidden) {
+        flyout.removeAttribute('hidden');
+        runPing();
+      } else {
+        flyout.setAttribute('hidden', '');
+      }
+    }
+  });
+
+  if (retestBtn) {
+    retestBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      runPing();
+    });
+  }
+
+  // Interactive "Simulate Offline Flight Mode" for live demonstrations
+  if (offlineSimBtn) {
+    offlineSimBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isSimulatingOffline = !isSimulatingOffline;
+
+      if (isSimulatingOffline) {
+        offlineSimBtn.textContent = '✕ Exit Offline Simulation';
+        offlineSimBtn.classList.add('is-active');
+        if (liveEdgeText) liveEdgeText.textContent = '✈️ Offline Mode Active';
+        if (connStatusEl) connStatusEl.textContent = 'Simulated Air-Gap (Local SW Active)';
+        if (latencyEl) latencyEl.textContent = '0 ms (Instant Local Cache)';
+
+        // Mount floating demo banner
+        if (!offlineBanner) {
+          offlineBanner = document.createElement('div');
+          offlineBanner.id = 'offline-sim-banner';
+          offlineBanner.className = 'offline-sim-banner';
+          offlineBanner.innerHTML = `
+            <div class="offline-banner-inner">
+              <span class="offline-badge-pulse">✈️ LIVE DEMO: OFFLINE FLIGHT MODE ACTIVE</span>
+              <span>Notice how Giri apps & pages open at 0ms latency with zero internet connection.</span>
+              <button type="button" class="offline-exit-btn" id="offline-banner-exit">Exit Demo</button>
+            </div>
+          `;
+          document.body.appendChild(offlineBanner);
+
+          document.getElementById('offline-banner-exit').addEventListener('click', () => {
+            offlineSimBtn.click();
+          });
+        }
+        offlineBanner.style.display = 'block';
+        showToast('✈️ Simulated Offline Flight Mode active! Try browsing pages.');
+      } else {
+        offlineSimBtn.textContent = '⚡ Simulate Offline Flight Mode';
+        offlineSimBtn.classList.remove('is-active');
+        if (liveEdgeText) liveEdgeText.textContent = 'Edge 100% Live';
+        if (connStatusEl) connStatusEl.textContent = 'Online (Fast Sub-20ms)';
+        if (offlineBanner) offlineBanner.style.display = 'none';
+        runPing();
+        showToast('✓ Restored Live Edge connection');
+      }
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (flyout && !flyout.hasAttribute('hidden') && !widget.contains(e.target)) {
+      flyout.setAttribute('hidden', '');
+    }
+  });
+
+  function updateNetworkStatus() {
+    if (isSimulatingOffline) return;
+    if (!navigator.onLine) {
+      if (liveEdgeText) liveEdgeText.textContent = 'Offline • Cache Ready';
+      if (connStatusEl) connStatusEl.textContent = 'Offline (Local Cache Armed)';
+      widget.setAttribute('title', 'Offline Mode: All Giri Apps run locally without cloud dependency');
+    } else {
+      if (liveEdgeText) liveEdgeText.textContent = 'Edge 100% Live';
+      if (connStatusEl) connStatusEl.textContent = 'Online (Fast)';
+      widget.setAttribute('title', '99.99% Edge Availability • Sub-15ms Global Latency');
+    }
+  }
+
+  window.addEventListener('online', updateNetworkStatus);
+  window.addEventListener('offline', updateNetworkStatus);
+  updateNetworkStatus();
+}
+
+// 4. KEYBOARD SHORTCUTS HUD
 export function initShortcutsHUD() {
   const dialog = document.getElementById('shortcuts-dialog');
   const footerTrigger = document.getElementById('shortcuts-trigger-footer');
@@ -119,20 +443,17 @@ export function initShortcutsHUD() {
     });
 
     dialog.addEventListener('click', (e) => {
-      if (e.target === dialog) {
-        closeHUD();
-      }
+      if (e.target === dialog) closeHUD();
     });
   }
 
   // Global Keyboard Handler
   window.addEventListener('keydown', (e) => {
-    // Ignore if typing in input, textarea, contenteditable, or search box
     const tag = e.target.tagName.toLowerCase();
     const isEditing = tag === 'input' || tag === 'textarea' || e.target.isContentEditable;
     if (isEditing) return;
 
-    // '?' or 'Shift+/' opens Shortcuts HUD
+    // '?' opens Shortcuts HUD
     if (e.key === '?' || (e.shiftKey && e.key === '/')) {
       e.preventDefault();
       if (dialog && dialog.open) {
@@ -143,7 +464,7 @@ export function initShortcutsHUD() {
       return;
     }
 
-    // Fast Alt+1..5 navigation
+    // Fast Alt+1..6 navigation
     if (e.altKey && !e.ctrlKey && !e.metaKey) {
       if (e.key === '1') {
         e.preventDefault();
@@ -165,13 +486,13 @@ export function initShortcutsHUD() {
   });
 }
 
-// 3. APP PINNER & SOVEREIGN FAVORITES (apps.html)
+// 5. APP PINNER & SOVEREIGN FAVORITES
 const APPS_CATALOG = {
   girionix: { name: 'Girionix AI', url: 'https://girionix-ai.pages.dev/', icon: '✦', desc: 'Polymath AI Workspace' },
   orbit: { name: 'Giri Orbit Suite', url: 'https://giri-orbit.pages.dev/#hub', icon: '🪐', desc: 'Cloud-Free Office' },
   drift: { name: 'Giri Drift', url: 'https://giri-orbit.pages.dev/#drift', icon: '✎', desc: 'Mindful Notes' },
-  axis: { name: 'Giri Axis', url: 'axis.html', icon: '⛃', desc: 'Rupee Finance' },
-  kinetic: { name: 'Giri Kinetic', url: 'kinetic.html', icon: '◫', desc: 'Keynote Decks' }
+  axis: { name: 'Giri Axis', url: 'https://giri-orbit.pages.dev/#hub', icon: '⛃', desc: 'Rupee Finance' },
+  kinetic: { name: 'Giri Kinetic', url: 'https://giri-orbit.pages.dev/#hub', icon: '◫', desc: 'Keynote Decks' }
 };
 
 export function initAppPinner() {
@@ -272,78 +593,7 @@ export function initAppPinner() {
   renderShelf();
 }
 
-// 4. LIVE EDGE LATENCY & OFFLINE DIAGNOSTICS
-export function initEdgeStatusWidget() {
-  const widget = document.getElementById('live-status-widget');
-  const flyout = document.getElementById('edge-status-flyout');
-  const latencyEl = document.getElementById('edge-latency-val');
-  const connStatusEl = document.getElementById('edge-conn-status');
-  const liveEdgeText = document.getElementById('live-edge-text');
-  const retestBtn = document.getElementById('edge-retest-btn');
-
-  if (!widget) return;
-
-  function runPing() {
-    if (latencyEl) latencyEl.textContent = 'Measuring...';
-    const start = performance.now();
-
-    fetch('assets/logo.png?t=' + Date.now(), { method: 'HEAD', cache: 'no-store' })
-      .then(() => {
-        const ms = Math.max(12, Math.round(performance.now() - start));
-        if (latencyEl) latencyEl.textContent = ms + ' ms';
-      })
-      .catch(() => {
-        if (latencyEl) latencyEl.textContent = '< 20 ms (Cached)';
-      });
-  }
-
-  widget.addEventListener('click', (e) => {
-    // If click was inside flyout, don't toggle
-    if (e.target.closest('.edge-status-flyout')) return;
-    if (flyout) {
-      const isHidden = flyout.hasAttribute('hidden');
-      if (isHidden) {
-        flyout.removeAttribute('hidden');
-        runPing();
-      } else {
-        flyout.setAttribute('hidden', '');
-      }
-    }
-  });
-
-  if (retestBtn) {
-    retestBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      runPing();
-    });
-  }
-
-  document.addEventListener('click', (e) => {
-    if (flyout && !flyout.hasAttribute('hidden') && !widget.contains(e.target)) {
-      flyout.setAttribute('hidden', '');
-    }
-  });
-
-  // Offline / Online Status Listeners
-  function updateNetworkStatus() {
-    if (!navigator.onLine) {
-      if (liveEdgeText) liveEdgeText.textContent = 'Offline • Cache Ready';
-      if (connStatusEl) connStatusEl.textContent = 'Offline (Local Cache Armed)';
-      widget.setAttribute('title', 'Offline Mode: All Giri Apps run locally without cloud dependency');
-      showToast('Offline Mode: All Giri tools remain 100% accessible via local cache.');
-    } else {
-      if (liveEdgeText) liveEdgeText.textContent = 'Edge 100% Live';
-      if (connStatusEl) connStatusEl.textContent = 'Online (Fast)';
-      widget.setAttribute('title', '99.99% Edge Availability • Sub-15ms Global Latency');
-    }
-  }
-
-  window.addEventListener('online', updateNetworkStatus);
-  window.addEventListener('offline', updateNetworkStatus);
-  updateNetworkStatus();
-}
-
-// 5. QUICK SHARE BUTTONS & TOAST NOTIFICATION
+// 6. QUICK SHARE & TOAST SYSTEM
 export function showToast(message) {
   let toast = document.getElementById('giri-toast');
   let toastText = document.getElementById('giri-toast-text');
@@ -375,16 +625,11 @@ export function initShareButtons() {
       e.preventDefault();
       e.stopPropagation();
       const url = btn.getAttribute('data-share-url') || window.location.href;
-      const title = btn.getAttribute('data-share-title') || 'Giri Corporation Tool';
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url)
-          .then(() => {
-            showToast('✓ Link copied to clipboard!');
-          })
-          .catch(() => {
-            showToast('✓ ' + url);
-          });
+          .then(() => showToast('✓ Link copied to clipboard!'))
+          .catch(() => showToast('✓ ' + url));
       } else {
         showToast('✓ ' + url);
       }
@@ -395,6 +640,7 @@ export function initShareButtons() {
 // Master Features Initializer
 export function initPracticalFeatures() {
   initSavingsCalculator();
+  initShowcaseDeck();
   initShortcutsHUD();
   initAppPinner();
   initEdgeStatusWidget();

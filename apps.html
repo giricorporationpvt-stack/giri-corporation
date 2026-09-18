@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <!-- Performance Preloads for 1M+ Edge Delivery -->
-  <link rel="preload" href="css/styles.css?v=20260917_v9_master" as="style">
+  <link rel="preload" href="css/styles.css?v=20260918_v10_showcase" as="style">
   <link rel="preload" href="assets/logo.png?v=2" as="image" fetchpriority="high">
   <link rel="modulepreload" href="js/modules/studio.js">
 
@@ -34,9 +34,13 @@
   </script>
 
   <!-- Design System Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=20260917_v9_master">
+  <link rel="stylesheet" href="css/styles.css?v=20260918_v10_showcase">
   <link rel="canonical" href="https://giri-corporation.pages.dev/apps.html">
   <link rel="sitemap" type="application/xml" href="sitemap.xml">
+
+
+  
+  
 
 
   <!-- Critical Infallible Theme & Service Worker Auto-Updater -->
@@ -377,6 +381,11 @@
         </div>
                 <div class="nav-item">
           <a href="https://giri-orbit.pages.dev/#hub" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-orbit" title="Giri Orbit Sovereign Office Suite"><span>Giri Orbit ↗</span></a>
+        </div>
+        <div class="nav-item">
+          <button type="button" class="nav-showcase-btn" id="open-showcase-btn" title="Launch Executive Office Showcase Deck (Press Alt+S)">
+            <span>📽️ Showcase Mode</span>
+          </button>
         </div>
         <div class="nav-item">
           <a href="apps.html" class="nav-link is-active-page"><span>Apps and Tools</span></a>
@@ -1271,5 +1280,198 @@
       });
     });
   </script>
+<!-- Executive Office Showcase Presentation Deck Modal (Alt+S) -->
+  <dialog class="showcase-deck-dialog" id="showcase-deck-dialog" aria-label="Executive Office Showcase Presentation">
+    <div class="showcase-deck-container">
+      <!-- Deck Top Bar -->
+      <div class="showcase-deck-header">
+        <div class="showcase-header-left">
+          <div class="showcase-logo-badge">
+            <img src="assets/logo.png?v=2" alt="Giri" width="22" height="22">
+            <strong>GIRI EXECUTIVE SHOWCASE</strong>
+          </div>
+          <span class="showcase-deck-sep">•</span>
+          <span class="showcase-slide-counter" id="showcase-slide-counter">01 // 05</span>
+        </div>
+        <div class="showcase-header-actions">
+          <button type="button" class="showcase-copy-pitch-btn" id="copy-pitch-summary-btn" title="Copy pitch note to clipboard for Slack or Teams">
+            <span>📋 Copy Pitch for Office</span>
+          </button>
+          <button type="button" class="showcase-close-btn" data-action="close-showcase" aria-label="Close Showcase Deck">✕</button>
+        </div>
+      </div>
+
+      <!-- Slide Display Surface -->
+      <div class="showcase-deck-body">
+        <!-- Slide 1: Mission -->
+        <article class="showcase-slide is-active" data-slide="1">
+          <div class="showcase-slide-pill">SLIDE 01 // 05 • FOUNDING VISION</div>
+          <h2 class="showcase-slide-title">Everyday Software Crafted in India to Liberate You from Dollar Rents</h2>
+          <p class="showcase-slide-lead">
+            Founded by Abhinav Giri, Giri builds sovereign, quiet, and beautiful everyday software. We eliminate subscription stress so teams and individuals can focus on work that truly matters.
+          </p>
+          <div class="showcase-slide-grid">
+            <div class="showcase-kpi-card">
+              <span class="kpi-icon">🇮🇳</span>
+              <h3>100% Indian Sovereign</h3>
+              <p>Conceived and architected from first principles in India for over 1.4 billion citizens.</p>
+            </div>
+            <div class="showcase-kpi-card">
+              <span class="kpi-icon">₹</span>
+              <h3>Zero Foreign Dollar Fees</h3>
+              <p>Permanently eliminates recurring $15–$50/month foreign credit card drains.</p>
+            </div>
+            <div class="showcase-kpi-card">
+              <span class="kpi-icon">🛡️</span>
+              <h3>Sacred Dignity & Focus</h3>
+              <p>Zero advertisements, zero popups, zero upgrade nags. Software that treats humans with respect.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 2: Enterprise Economics -->
+        <article class="showcase-slide" data-slide="2">
+          <div class="showcase-slide-pill">SLIDE 02 // 05 • WORKPLACE ROI & FOREX SAVINGS</div>
+          <h2 class="showcase-slide-title">Why Indian Offices Bleed ₹42,000+ Per Employee Every Single Year</h2>
+          <p class="showcase-slide-lead">
+            Foreign cloud monopolies bundle simple text editors, spreadsheets, and notes into mandatory recurring dollar subscriptions. Giri replaces the entire stack with sovereign zero-cost craft.
+          </p>
+          <div class="showcase-slide-grid">
+            <div class="showcase-kpi-card highlight-kpi">
+              <span class="kpi-number">₹4,20,000</span>
+              <h3>10-Person Team Savings</h3>
+              <p>Keeps $5,000 USD inside India every year instead of sending it overseas.</p>
+            </div>
+            <div class="showcase-kpi-card highlight-kpi">
+              <span class="kpi-number">₹10,50,000</span>
+              <h3>25-Person Dept Savings</h3>
+              <p>Over ₹10 Lakhs saved annually. Budget redirected to salaries and business growth.</p>
+            </div>
+            <div class="showcase-kpi-card highlight-kpi">
+              <span class="kpi-number">₹42,00,000</span>
+              <h3>100-Seat Enterprise</h3>
+              <p>Eliminates foreign exchange volatility and unpredictable annual license hikes.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 3: Privacy & Security -->
+        <article class="showcase-slide" data-slide="3">
+          <div class="showcase-slide-pill">SLIDE 03 // 05 • AIR-GAPPED PRIVACY & COMPLIANCE</div>
+          <h2 class="showcase-slide-title">Zero Remote Harvesting. Your Team's Files Stay Strictly on Your Machines.</h2>
+          <p class="showcase-slide-lead">
+            Traditional enterprise SaaS monitors every keystroke to train LLMs or build advertising profiles. Giri operates on an air-gapped local-first architecture.
+          </p>
+          <div class="showcase-slide-grid">
+            <div class="showcase-kpi-card">
+              <span class="kpi-icon">🔒</span>
+              <h3>0 Third-Party Trackers</h3>
+              <p>Strictly zero Google Analytics, zero Meta pixels, zero behavioral trackers, and zero cookies.</p>
+            </div>
+            <div class="showcase-kpi-card">
+              <span class="kpi-icon">💻</span>
+              <h3>100% Client-Side Compute</h3>
+              <p>Documents, finance models, and code run purely in the browser engine via WebAssembly & JS.</p>
+            </div>
+            <div class="showcase-kpi-card">
+              <span class="kpi-icon">⚖️</span>
+              <h3>Complete Sovereign Compliance</h3>
+              <p>No foreign cloud subpoena risks or international data-transfer treaty entanglements.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 4: Complete Product Ecosystem -->
+        <article class="showcase-slide" data-slide="4">
+          <div class="showcase-slide-pill">SLIDE 04 // 05 • THE GIRI EVERYDAY SUITE</div>
+          <h2 class="showcase-slide-title">Five Cohesive Tools Engineered to Power Your Daily Work & Creativity</h2>
+          <p class="showcase-slide-lead">
+            From cutting-edge generative AI to mindful writing and rupee finance, everything is unified under one sovereign aesthetic.
+          </p>
+          <div class="showcase-apps-matrix">
+            <div class="showcase-app-cell">
+              <span class="app-icon icon-purple">✦</span>
+              <div>
+                <strong>Girionix AI</strong>
+                <p>Flagship sovereign AI workspace with live React 18 IDE, Olympiad math derivations & 8K vision.</p>
+              </div>
+            </div>
+            <div class="showcase-app-cell">
+              <span class="app-icon icon-blue">🪐</span>
+              <div>
+                <strong>Giri Orbit</strong>
+                <p>Cloud-free sovereign office suite unifying Word processor, Sheets, Slides & Aegis PDF Studio.</p>
+              </div>
+            </div>
+            <div class="showcase-app-cell">
+              <span class="app-icon icon-sky">✎</span>
+              <div>
+                <strong>Giri Drift</strong>
+                <p>Distraction-free optical writing pad with real-time reading telemetry and instant local storage.</p>
+              </div>
+            </div>
+            <div class="showcase-app-cell">
+              <span class="app-icon icon-emerald">⛃</span>
+              <div>
+                <strong>Giri Axis</strong>
+                <p>Rupee-first visual personal & family finance planner with 5-year compound savings modeling.</p>
+              </div>
+            </div>
+            <div class="showcase-app-cell">
+              <span class="app-icon icon-indigo">◫</span>
+              <div>
+                <strong>Giri Kinetic</strong>
+                <p>Cinematic 16:9 presentation deck builder with Apple-grade spring motion and auto-typography.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 5: Edge Scale & Offline -->
+        <article class="showcase-slide" data-slide="5">
+          <div class="showcase-slide-pill">SLIDE 05 // 05 • RESILIENT CLOUD-FREE ARCHITECTURE</div>
+          <h2 class="showcase-slide-title">Sub-20ms Indian Edge Speed with 100% Offline Flight Mode</h2>
+          <p class="showcase-slide-lead">
+            Deployed on globally distributed edge nodes in Mumbai, Delhi, and Bengaluru. Engineered with Service Worker v9 for total offline independence.
+          </p>
+          <div class="showcase-slide-grid">
+            <div class="showcase-kpi-card">
+              <span class="kpi-icon">⚡</span>
+              <h3>Sub-20ms Response Time</h3>
+              <p>Zero heavy backends. Static assets delivered at wire speed across all Indian telecom networks.</p>
+            </div>
+            <div class="showcase-kpi-card">
+              <span class="kpi-icon">✈️</span>
+              <h3>100% Offline Flight Mode</h3>
+              <p>Disconnect your Wi-Fi right now—every single app and page continues to run flawlessly at 0ms latency.</p>
+            </div>
+            <div class="showcase-kpi-card">
+              <span class="kpi-icon">🚀</span>
+              <h3>1M+ Users/Sec Edge Ready</h3>
+              <p>Scales effortlessly to millions of concurrent citizens without cloud database bottlenecks.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Deck Footer Navigation -->
+      <div class="showcase-deck-footer">
+        <div class="showcase-deck-nav-btns">
+          <button type="button" class="showcase-nav-btn" id="showcase-prev-btn" aria-label="Previous Slide">← Previous</button>
+          <button type="button" class="showcase-nav-btn primary" id="showcase-next-btn" aria-label="Next Slide">Next Slide →</button>
+        </div>
+        <div class="showcase-deck-dots" role="tablist" aria-label="Showcase Slides">
+          <button type="button" class="showcase-dot is-active" data-slide-idx="0" aria-label="Slide 1"></button>
+          <button type="button" class="showcase-dot" data-slide-idx="1" aria-label="Slide 2"></button>
+          <button type="button" class="showcase-dot" data-slide-idx="2" aria-label="Slide 3"></button>
+          <button type="button" class="showcase-dot" data-slide-idx="3" aria-label="Slide 4"></button>
+          <button type="button" class="showcase-dot" data-slide-idx="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="showcase-keyboard-hint">
+          <span>Use <strong>← / →</strong> or <strong>Space</strong> to navigate • <strong>ESC</strong> to exit</span>
+        </div>
+      </div>
+    </div>
+  </dialog>
 </body>
 </html>
