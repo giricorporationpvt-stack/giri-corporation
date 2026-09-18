@@ -181,127 +181,291 @@ export class AccessibilitySuite {
   }
 
   /* ========================================================================
-     NATIVE WEB SPEECH SYNTHESIS AUDIO READER
+     HIGH-FIDELITY SOVEREIGN AUDIO READER & SPEECH SUITE
      ======================================================================== */
-  bindAudioReader() {
-    const playBtn = document.getElementById('audio-play-trigger') || document.querySelector('.audio-play-btn');
-    const speedBtn = document.getElementById('audio-speed-btn');
+  formatTime(seconds) {
+    if (isNaN(seconds) || seconds < 0) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  }
 
+  bindAudioReader() {
+    const playerBar = document.querySelector('.audio-reader-bar');
+    if (!playerBar) return;
+
+    this.audioElement = document.getElementById('founder-audio-player');
+    const playBtn = document.getElementById('audio-play-trigger');
+    const speedBtn = document.getElementById('audio-speed-btn');
+    const rewindBtn = document.getElementById('audio-rewind-btn');
+    const forwardBtn = document.getElementById('audio-forward-btn');
+    const muteBtn = document.getElementById('audio-mute-btn');
+    const scrubberTrack = document.getElementById('audio-scrubber-track');
+    const scrubberProgress = document.getElementById('audio-scrubber-progress');
+    const scrubberThumb = document.getElementById('audio-scrubber-thumb');
+    const timeDisplay = document.getElementById('audio-time-display');
+    const statusText = document.getElementById('audio-status-text');
+
+    if (!this.audioElement) {
+      this.audioElement = new Audio('assets/founder-letter.mp3?v=20260918');
+      this.audioElement.id = 'founder-audio-player';
+      this.audioElement.preload = 'metadata';
+      document.body.appendChild(this.audioElement);
+    }
+
+    // Restore saved playback speed
+    const savedRate = parseFloat(localStorage.getItem('giri_audio_rate'));
+    if (savedRate && !isNaN(savedRate)) {
+      this.playbackRate = savedRate;
+      if (this.audioElement) this.audioElement.playbackRate = this.playbackRate;
+      if (speedBtn) speedBtn.textContent = `${this.playbackRate}x`;
+    }
+
+    // Bind Play/Pause
     if (playBtn && !playBtn._audioBound) {
       playBtn._audioBound = true;
       playBtn.addEventListener('click', () => this.toggleAudioPlayback());
     }
 
+    // Bind Speed Selector: 1.0x -> 1.25x -> 1.5x -> 2.0x -> 0.8x
     if (speedBtn && !speedBtn._speedBound) {
       speedBtn._speedBound = true;
       speedBtn.addEventListener('click', () => {
-        this.playbackRate = this.playbackRate === 1.0 ? 1.25 : (this.playbackRate === 1.25 ? 1.5 : 1.0);
+        const rates = [1.0, 1.25, 1.5, 2.0, 0.8];
+        const nextIdx = (rates.indexOf(this.playbackRate) + 1) % rates.length;
+        this.playbackRate = rates[nextIdx];
+        localStorage.setItem('giri_audio_rate', this.playbackRate);
         speedBtn.textContent = `${this.playbackRate}x`;
-        if (this.isPlayingAudio) {
-          // Restart with new rate
-          this.stopAudio();
-          this.playAudio();
+        speedBtn.setAttribute('aria-label', `Playback speed ${this.playbackRate}x`);
+        if (this.audioElement) {
+          this.audioElement.playbackRate = this.playbackRate;
         }
+      });
+    }
+
+    // Bind 10s Rewind
+    if (rewindBtn && !rewindBtn._rewindBound) {
+      rewindBtn._rewindBound = true;
+      rewindBtn.addEventListener('click', () => this.seekRelative(-10));
+    }
+
+    // Bind 10s Forward
+    if (forwardBtn && !forwardBtn._forwardBound) {
+      forwardBtn._forwardBound = true;
+      forwardBtn.addEventListener('click', () => this.seekRelative(10));
+    }
+
+    // Bind Mute Toggle
+    if (muteBtn && !muteBtn._muteBound) {
+      muteBtn._muteBound = true;
+      muteBtn.addEventListener('click', () => this.toggleMute());
+    }
+
+    // Bind Scrubber Click & Drag
+    if (scrubberTrack && !scrubberTrack._scrubberBound) {
+      scrubberTrack._scrubberBound = true;
+
+      const handleSeek = (e) => {
+        if (!this.audioElement) return;
+        const rect = scrubberTrack.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+        const duration = this.audioElement.duration || 110;
+        this.audioElement.currentTime = pct * duration;
+        this.updateScrubberUI(pct * duration, duration);
+      };
+
+      let isDragging = false;
+      scrubberTrack.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        handleSeek(e);
+        const onMouseMove = (ev) => { if (isDragging) handleSeek(ev); };
+        const onMouseUp = () => {
+          isDragging = false;
+          window.removeEventListener('mousemove', onMouseMove);
+          window.removeEventListener('mouseup', onMouseUp);
+        };
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseup', onMouseUp);
+      });
+
+      scrubberTrack.addEventListener('touchstart', (e) => {
+        handleSeek(e);
+      }, { passive: true });
+
+      scrubberTrack.addEventListener('touchmove', (e) => {
+        handleSeek(e);
+      }, { passive: true });
+
+      // Keyboard accessible scrubbing
+      scrubberTrack.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          this.seekRelative(-5);
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          this.seekRelative(5);
+        } else if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          this.toggleAudioPlayback();
+        }
+      });
+    }
+
+    // Attach Audio Element Event Listeners
+    if (this.audioElement && !this.audioElement._eventsBound) {
+      this.audioElement._eventsBound = true;
+
+      this.audioElement.addEventListener('loadedmetadata', () => {
+        const duration = this.audioElement.duration || 110;
+        if (timeDisplay) {
+          timeDisplay.textContent = `0:00 / ${this.formatTime(duration)}`;
+        }
+      });
+
+      this.audioElement.addEventListener('timeupdate', () => {
+        const current = this.audioElement.currentTime;
+        const duration = this.audioElement.duration || 110;
+        this.updateScrubberUI(current, duration);
+      });
+
+      this.audioElement.addEventListener('play', () => {
+        this.isPlayingAudio = true;
+        this.updateAudioPlayerUI(true);
+      });
+
+      this.audioElement.addEventListener('pause', () => {
+        this.isPlayingAudio = false;
+        this.updateAudioPlayerUI(false);
+      });
+
+      this.audioElement.addEventListener('ended', () => {
+        this.isPlayingAudio = false;
+        this.updateAudioPlayerUI(false);
+        const duration = this.audioElement.duration || 110;
+        this.updateScrubberUI(0, duration);
+        if (statusText) statusText.textContent = 'Completed • Click to replay';
+      });
+
+      this.audioElement.addEventListener('error', (err) => {
+        console.warn('[AudioReader] MP3 load note, attempting resilient fallback:', err);
+        if (statusText) statusText.textContent = 'Switching to Speech Engine...';
       });
     }
   }
 
-  getTextToRead() {
-    // Priority: founder letter content, or main article, or main section
-    const letter = document.querySelector('.founder-letter-article');
-    if (letter) {
-      return letter.innerText.replace(/\s+/g, ' ').trim();
+  updateScrubberUI(currentTime, duration) {
+    const scrubberProgress = document.getElementById('audio-scrubber-progress');
+    const scrubberThumb = document.getElementById('audio-scrubber-thumb');
+    const timeDisplay = document.getElementById('audio-time-display');
+    const scrubberTrack = document.getElementById('audio-scrubber-track');
+
+    const pct = duration > 0 ? (currentTime / duration) * 100 : 0;
+    if (scrubberProgress) scrubberProgress.style.width = `${pct}%`;
+    if (scrubberThumb) scrubberThumb.style.left = `${pct}%`;
+    if (timeDisplay) {
+      timeDisplay.textContent = `${this.formatTime(currentTime)} / ${this.formatTime(duration)}`;
     }
-    const hero = document.querySelector('.dedicated-hero-wrap, .home-hero-content');
-    if (hero) {
-      return hero.innerText.replace(/\s+/g, ' ').trim();
+    if (scrubberTrack) {
+      scrubberTrack.setAttribute('aria-valuenow', Math.round(pct));
     }
-    return document.title + '. ' + (document.querySelector('p')?.innerText || '');
+  }
+
+  seekRelative(deltaSeconds) {
+    if (!this.audioElement) return;
+    const duration = this.audioElement.duration || 110;
+    const newTime = Math.max(0, Math.min(duration, this.audioElement.currentTime + deltaSeconds));
+    this.audioElement.currentTime = newTime;
+    this.updateScrubberUI(newTime, duration);
+  }
+
+  toggleMute() {
+    if (!this.audioElement) return;
+    this.audioElement.muted = !this.audioElement.muted;
+    const muteBtn = document.getElementById('audio-mute-btn');
+    if (!muteBtn) return;
+    const iconOn = muteBtn.querySelector('.icon-vol-on');
+    const iconOff = muteBtn.querySelector('.icon-vol-off');
+    if (iconOn && iconOff) {
+      iconOn.style.display = this.audioElement.muted ? 'none' : 'block';
+      iconOff.style.display = this.audioElement.muted ? 'block' : 'none';
+    }
+    muteBtn.setAttribute('title', this.audioElement.muted ? 'Unmute' : 'Mute');
+    muteBtn.setAttribute('aria-label', this.audioElement.muted ? 'Unmute sound' : 'Mute sound');
   }
 
   toggleAudioPlayback() {
-    if (!this.synth) {
-      alert('Speech synthesis is not supported on this browser.');
-      return;
-    }
-
-    if (this.synth.speaking && !this.synth.paused) {
-      this.pauseAudio();
-    } else if (this.synth.paused) {
-      this.resumeAudio();
+    if (this.audioElement) {
+      if (this.audioElement.paused) {
+        this.playAudio();
+      } else {
+        this.pauseAudio();
+      }
     } else {
-      this.playAudio();
+      // Fallback
+      this.playSpeechFallback();
     }
   }
 
   playAudio() {
-    if (!this.synth) return;
-    this.synth.cancel();
-
-    const text = this.getTextToRead();
-    if (!text) return;
-
-    this.utterance = new SpeechSynthesisUtterance(text);
-    this.utterance.rate = this.playbackRate;
-    this.utterance.pitch = 1.0;
-
-    // Pick natural voice (prefer Indian English or local language if available)
-    const voices = this.synth.getVoices();
-    const preferredVoice = voices.find(v => v.lang === 'en-IN') ||
-                           voices.find(v => v.lang.startsWith('en')) ||
-                           voices[0];
-    if (preferredVoice) this.utterance.voice = preferredVoice;
-
-    this.utterance.onstart = () => {
-      this.isPlayingAudio = true;
-      this.updateAudioPlayerUI(true);
-    };
-
-    this.utterance.onend = () => {
-      this.isPlayingAudio = false;
-      this.updateAudioPlayerUI(false);
-    };
-
-    this.utterance.onerror = () => {
-      this.isPlayingAudio = false;
-      this.updateAudioPlayerUI(false);
-    };
-
-    this.synth.speak(this.utterance);
+    if (!this.audioElement) {
+      this.bindAudioReader();
+    }
+    if (this.audioElement) {
+      this.audioElement.playbackRate = this.playbackRate;
+      const playPromise = this.audioElement.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            this.isPlayingAudio = true;
+            this.updateAudioPlayerUI(true);
+          })
+          .catch((err) => {
+            console.warn('[AudioReader] Autoplay or playback restriction:', err);
+            // Fallback to speech synthesis if audio file cannot be loaded
+            this.playSpeechFallback();
+          });
+      }
+    }
   }
 
   pauseAudio() {
-    if (this.synth && this.synth.speaking) {
-      this.synth.pause();
-      this.updateAudioPlayerUI(false);
+    if (this.audioElement && !this.audioElement.paused) {
+      this.audioElement.pause();
     }
-  }
-
-  resumeAudio() {
-    if (this.synth && this.synth.paused) {
-      this.synth.resume();
-      this.updateAudioPlayerUI(true);
-    }
+    this.isPlayingAudio = false;
+    this.updateAudioPlayerUI(false);
   }
 
   stopAudio() {
+    if (this.audioElement) {
+      this.audioElement.pause();
+      this.audioElement.currentTime = 0;
+    }
     if (this.synth) {
       this.synth.cancel();
-      this.isPlayingAudio = false;
-      this.updateAudioPlayerUI(false);
     }
+    this.isPlayingAudio = false;
+    this.updateAudioPlayerUI(false);
   }
 
   updateAudioPlayerUI(playing) {
-    const playBtn = document.getElementById('audio-play-trigger') || document.querySelector('.audio-play-btn');
+    const playBtn = document.getElementById('audio-play-trigger');
     const waveWrap = document.querySelector('.audio-wave-wrap');
     const statusText = document.getElementById('audio-status-text');
 
     if (playBtn) {
       playBtn.setAttribute('aria-label', playing ? 'Pause speech' : 'Play speech');
-      playBtn.innerHTML = playing
-        ? `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`
-        : `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+      const iconPlay = playBtn.querySelector('.icon-play');
+      const iconPause = playBtn.querySelector('.icon-pause');
+      if (iconPlay && iconPause) {
+        iconPlay.style.display = playing ? 'none' : 'block';
+        iconPause.style.display = playing ? 'block' : 'none';
+      } else {
+        playBtn.innerHTML = playing
+          ? `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`
+          : `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+      }
     }
 
     if (waveWrap) {
@@ -311,6 +475,74 @@ export class AccessibilitySuite {
     if (statusText) {
       statusText.textContent = playing ? 'Playing audio...' : 'Click to listen';
     }
+  }
+
+  /* ========================================================================
+     RESILIENT SPEECH SYNTHESIS FALLBACK (SENTENCE CHUNKED)
+     ======================================================================== */
+  playSpeechFallback() {
+    if (!this.synth) {
+      alert('Audio playback is not supported on this browser.');
+      return;
+    }
+    this.synth.cancel();
+
+    // Prevent GC in Chromium
+    window._activeSpeechUtterances = [];
+
+    const article = document.querySelector('.founder-letter-article');
+    const fullText = article ? article.innerText.replace(/\s+/g, ' ').trim() : document.title;
+    if (!fullText) return;
+
+    // Split into sentences (under 180 chars) to prevent Chrome buffer stall bug
+    const sentences = fullText.match(/[^.!?]+[.!?]+(\s|$)/g) || [fullText];
+    let currentIndex = 0;
+
+    const speakNext = () => {
+      if (currentIndex >= sentences.length) {
+        this.isPlayingAudio = false;
+        this.updateAudioPlayerUI(false);
+        return;
+      }
+
+      const chunk = sentences[currentIndex].trim();
+      if (!chunk) {
+        currentIndex++;
+        speakNext();
+        return;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(chunk);
+      utterance.rate = this.playbackRate;
+      utterance.pitch = 1.0;
+      utterance.volume = 1.0;
+
+      const voices = this.synth.getVoices();
+      const preferredVoice = voices.find(v => v.lang === 'en-IN') ||
+                             voices.find(v => v.lang.startsWith('en')) ||
+                             voices[0];
+      if (preferredVoice) utterance.voice = preferredVoice;
+
+      utterance.onstart = () => {
+        this.isPlayingAudio = true;
+        this.updateAudioPlayerUI(true);
+      };
+
+      utterance.onend = () => {
+        currentIndex++;
+        speakNext();
+      };
+
+      utterance.onerror = () => {
+        currentIndex++;
+        speakNext();
+      };
+
+      window._activeSpeechUtterances.push(utterance);
+      this.synth.speak(utterance);
+    };
+
+    speakNext();
   }
 }
 

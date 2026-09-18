@@ -4,14 +4,14 @@
  * Network-First for Navigation, HTML, CSS, and JS to guarantee instant updates.
  */
 
-const CACHE_NAME = 'giri-edge-v11';
+const CACHE_NAME = 'giri-edge-v12';
 
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/apps.html',
   '/founder.html',
-  '/css/styles.css?v=20260918_v11_msoffice',
+  '/css/styles.css?v=20260918_v12_audio',
   '/js/app.js',
   '/js/nav.js',
   '/js/modules/features.js',
@@ -58,6 +58,10 @@ self.addEventListener('fetch', (event) => {
 
   // Ignore cross-origin external API requests
   if (url.origin !== self.location.origin) return;
+
+  // Range requests (e.g. byte-range seeking in audio/video) must bypass service worker cache
+  // to avoid HTTP 206 Partial Content caching bugs in Safari and Chromium
+  if (request.headers.has('range')) return;
 
   const isHtml = request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html') || url.pathname.endsWith('.html');
   const isCode = url.pathname.endsWith('.css') || url.pathname.endsWith('.js');
